@@ -18,7 +18,9 @@ CASES_BY_ID = {c["id"]: c for c in CASES}
 
 
 def start_new_case():
-    case = random.choice(CASES)
+    previous_id = session.get("case_id")
+    candidates = [c for c in CASES if c["id"] != previous_id] or CASES
+    case = random.choice(candidates)
     session["case_id"] = case["id"]
     session["history"] = []
     return case
@@ -26,10 +28,7 @@ def start_new_case():
 
 @app.route("/")
 def home():
-    case_id = session.get("case_id")
-    case = CASES_BY_ID.get(case_id) if case_id else None
-    if case is None:
-        case = start_new_case()
+    case = start_new_case()
     return render_template("index.html", case=case, history=session.get("history", []))
 
 
