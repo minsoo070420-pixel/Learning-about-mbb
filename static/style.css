@@ -133,13 +133,19 @@ body {
 
 .chat-input-row {
   display: flex;
+  align-items: flex-end;
   gap: 10px;
   padding: 14px 0 20px;
   border-top: 1px solid #e0e1e6;
 }
 
-#chat-input {
+.input-wrap {
   flex: 1;
+  position: relative;
+}
+
+#chat-input {
+  width: 100%;
   resize: none;
   border: 1px solid #c7c9d1;
   border-radius: 8px;
@@ -151,6 +157,71 @@ body {
 #chat-input:focus {
   outline: none;
   border-color: #1f3a5f;
+}
+
+.listening-indicator {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fdeceb;
+  color: #b0271e;
+  border: 1px solid #f3b9b4;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e0342a;
+  animation: pulse-dot 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.75); }
+}
+
+.mic-btn {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid #c7c9d1;
+  border-radius: 50%;
+  color: #444;
+  cursor: pointer;
+}
+
+.mic-btn:hover {
+  background: #ececef;
+}
+
+.mic-btn.listening {
+  background: #e0342a;
+  border-color: #e0342a;
+  color: #fff;
+  animation: mic-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes mic-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(224, 52, 42, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(224, 52, 42, 0); }
+}
+
+.mic-btn:disabled,
+.mic-btn.unsupported {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 #send-btn {
