@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Interview Practice</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="page">
+    <header class="case-header">
+      <div class="case-header-top">
+        <span class="category-badge">{{ case.category }}</span>
+        <div class="header-actions">
+          <form action="{{ url_for('end_case') }}" method="post">
+            <button type="submit" class="finish-btn" {{ 'disabled' if not history }}>Finish Case &amp; Get Feedback</button>
+          </form>
+          <form action="{{ url_for('new_case') }}" method="post">
+            <button type="submit" class="new-case-btn">New Case</button>
+          </form>
+        </div>
+      </div>
+      <h1>{{ case.title }}</h1>
+      <p class="case-prompt">{{ case.prompt }}</p>
+    </header>
+
+    {% if error %}
+      <p class="error-banner">{{ error }}</p>
+    {% endif %}
+
+    <main class="chat-log" id="chat-log">
+      {% for turn in history %}
+        <div class="bubble {{ 'candidate' if turn.role == 'user' else 'interviewer' }}">
+          {{ turn.content }}
+        </div>
+      {% endfor %}
+      {% if not history %}
+        <p class="chat-empty">Open with how you'd like to structure your approach, or ask a clarifying question to get started.</p>
+      {% endif %}
+    </main>
+
+    <form id="chat-form" class="chat-input-row">
+      <textarea id="chat-input" placeholder="Type your response..." rows="2" autofocus></textarea>
+      <button type="submit" id="send-btn">Send</button>
+    </form>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
