@@ -169,6 +169,15 @@ category gets a free pass with no critique.
 them in the third person as "the candidate," "the interviewee," or "they."
 7. Every "quote", "feedback", and "improvement" field must be a non-empty, complete sentence or two — never \
 leave a field blank or a single word, even for a category that scores well.
+8. If a claim doesn't actually follow from the candidate's own data or from what they said just before it — \
+a non-sequitur, an unjustified leap, a contradiction, or math that doesn't add up — the feedback for that \
+category MUST open with a direct callout using this exact wording (pick whichever fits the grammar of the \
+sentence, but do not paraphrase it into something softer): "I don't understand your logic here" or "I can't \
+follow your logic here" or "I don't understand the logic behind that." Immediately after that sentence, \
+explain in your own words exactly where the logical thread breaks. Do not let confident delivery substitute \
+for sound reasoning — a fluent non-sequitur gets this callout and gets scored down (1-3 range on the affected \
+category) just as much as a hesitant one, never smoothed over as a minor stylistic note or described only in \
+indirect terms like "wasn't well grounded" without the direct callout sentence itself.
 
 BANNED GENERIC FEEDBACK:
 The following are examples of feedback that must NEVER appear, in any category, in any field, because they \
