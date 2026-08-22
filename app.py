@@ -26,8 +26,19 @@ with open(os.path.join(os.path.dirname(__file__), "cases.json")) as f:
     CASES = json.load(f)
 CASES_BY_ID = {c["id"]: c for c in CASES}
 
-DAILY_GEMINI_LIMIT = int(os.environ.get("DAILY_GEMINI_LIMIT", "100"))  # shared cap across /chat and /end-case
+# Gemini API key is on the free tier, which has its own hard daily request cap set by Google
+# (roughly 1,000-1,500 requests/day for Flash-Lite, per Google's account-level dashboard rather
+# than a number published in their docs). 800 is a deliberate safety margin under that ceiling —
+# the app should hit its OWN limit first and fail with a friendly message, rather than Google's
+# raw quota error surfacing to a user.
+DAILY_GEMINI_LIMIT = int(os.environ.get("DAILY_GEMINI_LIMIT", "800"))  # shared cap across ALL customers combined
                                                                         # set to 0 or blank to disable
+# A full case interview costs roughly 7-10 Gemini calls (one per chat turn, plus one for
+# /end-case grading). 10 covers one case with a little headroom — kept close to actual case
+# cost so the 800/day budget above spreads across ~80 distinct customers rather than a handful
+# of heavy users exhausting it for everyone else.
+PER_CUSTOMER_DAILY_LIMIT = int(os.environ.get("PER_CUSTOMER_DAILY_LIMIT", "10"))  # cap per individual customer
+                                                                                   # set to 0 or blank to disable
 
 # In-memory counter, shared by every request this process handles. Resets when the calendar date
 # changes. Does NOT persist across restarts, and does NOT stay in sync across multiple worker
@@ -48,6 +59,22 @@ def _daily_limit_reached():
         return True
 
     _gemini_call_count += 1
+    return False
+
+
+def _customer_daily_limit_reached():
+    # Tracked in the customer's own session cookie rather than server memory — this is what
+    # already carries case_id/history per customer, so it's the natural place to also carry
+    # "how many calls has THIS customer made today," without needing a database.
+    today = date.today().isoformat()
+    if session.get("usage_date") != today:
+        session["usage_date"] = today
+        session["usage_count"] = 0
+
+    if PER_CUSTOMER_DAILY_LIMIT and session.get("usage_count", 0) >= PER_CUSTOMER_DAILY_LIMIT:
+        return True
+
+    session["usage_count"] = session.get("usage_count", 0) + 1
     return False
 
 
@@ -83,8 +110,11 @@ def chat():
     if not user_message:
         return jsonify({"error": "Message cannot be empty."}), 400
 
+    if _customer_daily_limit_reached():
+        return jsonify({"error": "You've reached today's usage limit for this tool. Please come back tomorrow."}), 429
+
     if _daily_limit_reached():
-        return jsonify({"error": "This tool has hit its usage limit for today. Please try again tomorrow."}), 429
+        return jsonify({"error": "This tool has hit its site-wide usage limit for today. Please try again tomorrow."}), 429
 
     history = session.get("history", [])
     try:
@@ -111,10 +141,16 @@ def end_case():
     if not history:
         return redirect(url_for("home"))
 
+    if _customer_daily_limit_reached():
+        return render_template(
+            "index.html", case=case, history=history,
+            error="You've reached today's usage limit for this tool. Please come back tomorrow.",
+        ), 429
+
     if _daily_limit_reached():
         return render_template(
             "index.html", case=case, history=history,
-            error="This tool has hit its usage limit for today. Please try again tomorrow.",
+            error="This tool has hit its site-wide usage limit for today. Please try again tomorrow.",
         ), 429
 
     try:
