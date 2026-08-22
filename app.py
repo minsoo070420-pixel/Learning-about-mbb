@@ -1,6 +1,7 @@
 import json                        # loads cases.json and parses/serializes chat payloads
 import os                          # reads FLASK_SECRET_KEY from the environment
 import random                      # picks a random case for a new session
+from datetime import date          # used to detect when a new calendar day starts, to reset the daily count
 from dotenv import load_dotenv     # loads variables from .env into the environment
 from flask import Flask, render_template, request, session, jsonify, redirect, url_for
 from grading import interview_response, grade_case, GRADING_CATEGORY_KEYS
@@ -12,9 +13,42 @@ app.secret_key = os.environ.get("FLASK_SECRET_KEY")
 if not app.secret_key:
     raise RuntimeError("FLASK_SECRET_KEY is not set. Add it to your .env file.")
 
+app.config.update(
+    SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_SAMESITE="Lax",
+    # Loopback addresses (localhost/127.0.0.1) are treated as a secure context by browsers even
+    # over plain http, so this stays True for local dev too — it only actually matters once this
+    # is deployed on a real domain, where it stops the session cookie from ever being sent unencrypted.
+    SESSION_COOKIE_SECURE=True,
+)
+
 with open(os.path.join(os.path.dirname(__file__), "cases.json")) as f:
     CASES = json.load(f)
 CASES_BY_ID = {c["id"]: c for c in CASES}
+
+DAILY_GEMINI_LIMIT = int(os.environ.get("DAILY_GEMINI_LIMIT", "100"))  # shared cap across /chat and /end-case
+                                                                        # set to 0 or blank to disable
+
+# In-memory counter, shared by every request this process handles. Resets when the calendar date
+# changes. Does NOT persist across restarts, and does NOT stay in sync across multiple worker
+# processes if this is ever deployed with more than one — fine for a single small dyno/instance,
+# not a substitute for real per-user billing controls at real scale.
+_gemini_call_count = 0
+_gemini_call_count_date = None
+
+
+def _daily_limit_reached():
+    global _gemini_call_count, _gemini_call_count_date
+    today = date.today()
+    if _gemini_call_count_date != today:
+        _gemini_call_count_date = today
+        _gemini_call_count = 0
+
+    if DAILY_GEMINI_LIMIT and _gemini_call_count >= DAILY_GEMINI_LIMIT:
+        return True
+
+    _gemini_call_count += 1
+    return False
 
 
 def start_new_case():
@@ -49,8 +83,15 @@ def chat():
     if not user_message:
         return jsonify({"error": "Message cannot be empty."}), 400
 
+    if _daily_limit_reached():
+        return jsonify({"error": "This tool has hit its usage limit for today. Please try again tomorrow."}), 429
+
     history = session.get("history", [])
-    reply = interview_response(case, history, user_message)
+    try:
+        reply = interview_response(case, history, user_message)
+    except Exception as e:
+        print(f"interview_response failed: {e}")
+        return jsonify({"error": "The interviewer had trouble responding just now. Please try again."}), 502
 
     history.append({"role": "user", "content": user_message})
     history.append({"role": "model", "content": reply})
@@ -70,6 +111,12 @@ def end_case():
     if not history:
         return redirect(url_for("home"))
 
+    if _daily_limit_reached():
+        return render_template(
+            "index.html", case=case, history=history,
+            error="This tool has hit its usage limit for today. Please try again tomorrow.",
+        ), 429
+
     try:
         result = grade_case(case, history)
     except ValueError as e:
@@ -78,6 +125,12 @@ def end_case():
             "index.html", case=case, history=history,
             error="The AI response could not be understood. Please try finishing the case again.",
         ), 500
+    except Exception as e:
+        print(f"grade_case failed: {e}")
+        return render_template(
+            "index.html", case=case, history=history,
+            error="Grading failed unexpectedly. Please try finishing the case again.",
+        ), 502
 
     return render_template(
         "results.html",
