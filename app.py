@@ -26,6 +26,14 @@ with open(os.path.join(os.path.dirname(__file__), "cases.json")) as f:
     CASES = json.load(f)
 CASES_BY_ID = {c["id"]: c for c in CASES}
 
+DIFFICULTIES = ["beginner", "intermediate", "interview_ready"]
+DIFFICULTY_LABELS = {
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "interview_ready": "Interview Ready",
+}
+CASES_BY_DIFFICULTY = {d: [c for c in CASES if c["difficulty"] == d] for d in DIFFICULTIES}
+
 # Gemini API key is on the free tier, which has its own hard daily request cap set by Google
 # (roughly 1,000-1,500 requests/day for Flash-Lite, per Google's account-level dashboard rather
 # than a number published in their docs). 800 is a deliberate safety margin under that ceiling —
@@ -79,8 +87,9 @@ def _customer_daily_limit_reached():
 
 
 def start_new_case():
+    pool = CASES_BY_DIFFICULTY[session["difficulty"]]
     previous_id = session.get("case_id")
-    candidates = [c for c in CASES if c["id"] != previous_id] or CASES
+    candidates = [c for c in pool if c["id"] != previous_id] or pool
     case = random.choice(candidates)
     session["case_id"] = case["id"]
     session["history"] = []
@@ -89,14 +98,37 @@ def start_new_case():
 
 @app.route("/")
 def home():
+    if session.get("difficulty") not in DIFFICULTIES:
+        return render_template("levels.html", difficulties=DIFFICULTIES, labels=DIFFICULTY_LABELS)
     case = start_new_case()
-    return render_template("index.html", case=case, history=session.get("history", []))
+    return render_template(
+        "index.html", case=case, history=session.get("history", []),
+        difficulty_label=DIFFICULTY_LABELS[session["difficulty"]],
+    )
+
+
+@app.route("/levels")
+def levels():
+    return render_template("levels.html", difficulties=DIFFICULTIES, labels=DIFFICULTY_LABELS)
+
+
+@app.route("/select-level", methods=["POST"])
+def select_level():
+    difficulty = request.form.get("difficulty")
+    if difficulty not in DIFFICULTIES:
+        return redirect(url_for("levels"), code=303)
+    session["difficulty"] = difficulty
+    session["case_id"] = None
+    session["history"] = []
+    return redirect(url_for("home"), code=303)
 
 
 @app.route("/new", methods=["POST"])
 def new_case():
+    if session.get("difficulty") not in DIFFICULTIES:
+        return redirect(url_for("levels"), code=303)
     start_new_case()
-    return redirect(url_for("home"))
+    return redirect(url_for("home"), code=303)
 
 
 @app.route("/chat", methods=["POST"])
@@ -135,21 +167,21 @@ def end_case():
     case_id = session.get("case_id")
     case = CASES_BY_ID.get(case_id)
     if case is None:
-        return redirect(url_for("home"))
+        return redirect(url_for("home"), code=303)
 
     history = session.get("history", [])
     if not history:
-        return redirect(url_for("home"))
+        return redirect(url_for("home"), code=303)
 
     if _customer_daily_limit_reached():
         return render_template(
-            "index.html", case=case, history=history,
+            "index.html", case=case, history=history, difficulty_label=DIFFICULTY_LABELS.get(case["difficulty"], ""),
             error="You've reached today's usage limit for this tool. Please come back tomorrow.",
         ), 429
 
     if _daily_limit_reached():
         return render_template(
-            "index.html", case=case, history=history,
+            "index.html", case=case, history=history, difficulty_label=DIFFICULTY_LABELS.get(case["difficulty"], ""),
             error="This tool has hit its site-wide usage limit for today. Please try again tomorrow.",
         ), 429
 
@@ -158,13 +190,13 @@ def end_case():
     except ValueError as e:
         print(f"Grading failed to parse: {e}")
         return render_template(
-            "index.html", case=case, history=history,
+            "index.html", case=case, history=history, difficulty_label=DIFFICULTY_LABELS.get(case["difficulty"], ""),
             error="The AI response could not be understood. Please try finishing the case again.",
         ), 500
     except Exception as e:
         print(f"grade_case failed: {e}")
         return render_template(
-            "index.html", case=case, history=history,
+            "index.html", case=case, history=history, difficulty_label=DIFFICULTY_LABELS.get(case["difficulty"], ""),
             error="Grading failed unexpectedly. Please try finishing the case again.",
         ), 502
 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose Your Level — Case Interview Practice</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="levels-page">
+    <h1>What level do you want to practice at?</h1>
+    <p class="levels-intro">You can switch levels any time — pick whatever matches where you're at right now.</p>
+
+    <form action="{{ url_for('select_level') }}" method="post" class="level-cards">
+      <button type="submit" name="difficulty" value="beginner" class="level-card">
+        <span class="level-name">Beginner</span>
+        <span class="level-desc">Simple, single-driver cases with round numbers — a gentle first introduction to case structure.</span>
+      </button>
+
+      <button type="submit" name="difficulty" value="intermediate" class="level-card">
+        <span class="level-name">Intermediate</span>
+        <span class="level-desc">A bit more moving parts and less hand-holding, but still on the easier side.</span>
+      </button>
+
+      <button type="submit" name="difficulty" value="interview_ready" class="level-card featured">
+        <span class="level-name">Interview Ready</span>
+        <span class="level-desc">Realistic, full-complexity MBB cases — what an actual interview feels like.</span>
+      </button>
+    </form>
+  </div>
+</body>
+</html>

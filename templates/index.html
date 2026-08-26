@@ -10,7 +10,11 @@
   <div class="page">
     <header class="case-header">
       <div class="case-header-top">
-        <span class="category-badge">{{ case.category }}</span>
+        <div class="badge-row">
+          <span class="category-badge">{{ case.category }}</span>
+          <span class="difficulty-badge difficulty-{{ case.difficulty }}">{{ difficulty_label }}</span>
+          <a href="{{ url_for('levels') }}" class="change-level-link">Change level</a>
+        </div>
         <div class="header-actions">
           <form action="{{ url_for('end_case') }}" method="post">
             <button type="submit" class="finish-btn" {{ 'disabled' if not history }}>Finish Case &amp; Get Feedback</button>
