@@ -18,6 +18,18 @@ function addBubble(text, role) {
   return bubble;
 }
 
+function addExhibit(svgMarkup) {
+  const empty = chatLog.querySelector(".chat-empty");
+  if (empty) empty.remove();
+
+  const card = document.createElement("div");
+  card.className = "exhibit-card";
+  card.innerHTML = `<p class="exhibit-label">Exhibit 1</p>${svgMarkup}`;
+  chatLog.appendChild(card);
+  chatLog.scrollTop = chatLog.scrollHeight;
+  return card;
+}
+
 const SpeechRecognitionImpl = window.SpeechRecognition || window.webkitSpeechRecognition;
 const SILENCE_TIMEOUT_MS = 3000;
 
@@ -140,6 +152,7 @@ chatForm.addEventListener("submit", async (e) => {
       addBubble(data.error || "Something went wrong.", "model");
     } else {
       addBubble(data.reply, "model");
+      if (data.exhibit_svg) addExhibit(data.exhibit_svg);
       if (finishBtn) {
         if (finishBtn.dataset.difficulty === "interview_ready") {
           if (data.case_complete) finishBtn.classList.remove("hidden");

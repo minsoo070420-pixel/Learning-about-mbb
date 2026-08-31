@@ -622,7 +622,7 @@ body {
   border: 1px solid #e0e1e6;
   border-radius: 10px;
   padding: 10px 14px 4px;
-  margin: 12px 0 0;
+  flex-shrink: 0;
 }
 
 .exhibit-label {

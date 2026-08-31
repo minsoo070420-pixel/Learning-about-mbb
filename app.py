@@ -6,7 +6,7 @@ from datetime import date          # used to detect when a new calendar day star
 from dotenv import load_dotenv     # loads variables from .env into the environment
 from flask import Flask, render_template, request, session, jsonify, redirect, url_for
 from charts import render_exhibit_svg
-from grading import interview_response, grade_case, GRADING_CATEGORY_KEYS, CASE_COMPLETE_MARKER
+from grading import interview_response, grade_case, GRADING_CATEGORY_KEYS, CASE_COMPLETE_MARKER, SHOW_EXHIBIT_MARKER
 
 load_dotenv()
 
@@ -104,16 +104,15 @@ def start_new_case():
     session["case_id"] = case["id"]
     session["history"] = []
     session["case_complete"] = False
+    session["exhibit_shown"] = False
     return case
 
 
 def _render_case_page(case, **kwargs):
-    exhibit_svg = None
-    if case.get("exhibit"):
-        exhibit_svg = render_exhibit_svg(case["exhibit"])
+    exhibit_svg = render_exhibit_svg(case["exhibit"]) if case.get("exhibit") else None
     return render_template(
         "index.html", case=case, difficulty_label=DIFFICULTY_LABELS.get(case["difficulty"], ""),
-        exhibit_svg=exhibit_svg, case_complete=session.get("case_complete", False), **kwargs,
+        case_complete=session.get("case_complete", False), exhibit_svg=exhibit_svg, **kwargs,
     )
 
 
@@ -141,6 +140,7 @@ def select_level():
     session["case_id"] = None
     session["history"] = []
     session["case_complete"] = False
+    session["exhibit_shown"] = False
     return redirect(url_for("questions"), code=303)
 
 
@@ -168,6 +168,7 @@ def select_case():
     session["case_id"] = case["id"]
     session["history"] = []
     session["case_complete"] = False
+    session["exhibit_shown"] = False
     return redirect(url_for("home"), code=303)
 
 
@@ -197,8 +198,11 @@ def chat():
         return jsonify({"error": "This tool has hit its site-wide usage limit for today. Please try again tomorrow."}), 429
 
     history = session.get("history", [])
+    # "exhibit" entries are display-only markers for reconstructing the chat log on reload —
+    # Gemini's API only accepts user/model roles, so they're excluded from what it sees.
+    chat_history = [turn for turn in history if turn["role"] in ("user", "model")]
     try:
-        reply = interview_response(case, history, user_message)
+        reply = interview_response(case, chat_history, user_message)
     except Exception as e:
         print(f"interview_response failed: {e}")
         return jsonify({"error": "The interviewer had trouble responding just now. Please try again."}), 502
@@ -208,11 +212,24 @@ def chat():
         reply = re.sub(re.escape(CASE_COMPLETE_MARKER), "", reply).strip()
         session["case_complete"] = True
 
+    show_exhibit = (
+        SHOW_EXHIBIT_MARKER in reply and case.get("exhibit") and not session.get("exhibit_shown")
+    )
+    if SHOW_EXHIBIT_MARKER in reply:
+        reply = re.sub(re.escape(SHOW_EXHIBIT_MARKER), "", reply).strip()
+    if show_exhibit:
+        session["exhibit_shown"] = True
+
     history.append({"role": "user", "content": user_message})
     history.append({"role": "model", "content": reply})
+    if show_exhibit:
+        history.append({"role": "exhibit", "content": ""})
     session["history"] = history
 
-    return jsonify({"reply": reply, "case_complete": session.get("case_complete", False)})
+    response = {"reply": reply, "case_complete": session.get("case_complete", False)}
+    if show_exhibit:
+        response["exhibit_svg"] = render_exhibit_svg(case["exhibit"])
+    return jsonify(response)
 
 
 @app.route("/end-case", methods=["POST"])

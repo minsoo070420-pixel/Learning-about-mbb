@@ -33,13 +33,6 @@
       <p class="case-prompt">{{ case.prompt }}</p>
     </header>
 
-    {% if exhibit_svg %}
-      <div class="exhibit-card">
-        <p class="exhibit-label">Exhibit 1</p>
-        {{ exhibit_svg | safe }}
-      </div>
-    {% endif %}
-
     {% if case.difficulty == 'interview_ready' %}
       <p class="interviewer-controlled-note">This is a full case — your interviewer decides when it wraps up, not a button.</p>
     {% endif %}
@@ -50,9 +43,16 @@
 
     <main class="chat-log" id="chat-log">
       {% for turn in history %}
-        <div class="bubble {{ 'candidate' if turn.role == 'user' else 'interviewer' }}">
-          {{ turn.content }}
-        </div>
+        {% if turn.role == 'exhibit' %}
+          <div class="exhibit-card">
+            <p class="exhibit-label">Exhibit 1</p>
+            {{ exhibit_svg | safe }}
+          </div>
+        {% else %}
+          <div class="bubble {{ 'candidate' if turn.role == 'user' else 'interviewer' }}">
+            {{ turn.content }}
+          </div>
+        {% endif %}
       {% endfor %}
       {% if not history %}
         <p class="chat-empty">Open with how you'd like to structure your approach, or ask a clarifying question to get started.</p>

@@ -65,7 +65,7 @@ prompting them to request data and interpret it themselves.
 press on how they'd defend it.
 If the candidate tries to jump ahead — proposing a framework before asking any clarifying questions, or a \
 recommendation before doing any analysis — redirect them back to the current stage instead of following along.
-{completion_instruction}
+{completion_instruction}{exhibit_instruction}
 STYLE
 Respond the way a real interviewer talks in the room: a few sentences of natural dialogue, not a lecture, \
 not bullet points, not a report. Ask one question at a time.
@@ -86,14 +86,43 @@ you are truly ending the interview.
 """
 
 
+SHOW_EXHIBIT_MARKER = "[[SHOW_EXHIBIT]]"
+
+EXHIBIT_INSTRUCTION_TEMPLATE = f"""
+EXHIBIT — REVEAL IT PROGRESSIVELY, NOT UPFRONT
+You have exactly one exhibit available: a chart covering "{{exhibit_topic}}". Real case interviews never hand \
+this over at the start — the candidate has to earn it by asking a question that data would actually answer \
+(for example, asking you to break down the metric it covers, or asking to see the trend or comparison behind \
+a number you've already given them). Do not mention that an exhibit exists until that moment arrives.
+
+The moment the candidate asks for exactly the kind of data this exhibit shows — even if they never use the \
+word "chart" or "exhibit" — that IS the trigger. Don't just answer in prose and quietly skip the reveal: if \
+what they're asking for is what this exhibit covers, show it right then, the first time it comes up.
+
+When that moment arrives:
+- Say ONLY a brief, natural transition line — "Good question — here's the data" or similar. Do NOT restate \
+the exhibit's numbers in your own text; the chart itself shows them, so repeating them in prose is redundant \
+and you must not do it.
+- Put this exact marker on its own line at the very end of that same message, and nothing after it: \
+{SHOW_EXHIBIT_MARKER}
+
+Show it exactly once, the first time it's genuinely earned — never in your first response, and don't sit on \
+it once they've clearly asked for that data.
+"""
+
+
 def _build_system_prompt(case: dict) -> str:
     key_data_block = "\n".join(f"- {item}" for item in case["key_data"])
     completion_instruction = COMPLETION_INSTRUCTION if case.get("difficulty") == "interview_ready" else ""
+    exhibit_instruction = ""
+    if case.get("exhibit"):
+        exhibit_instruction = EXHIBIT_INSTRUCTION_TEMPLATE.format(exhibit_topic=case["exhibit"]["title"])
     return SYSTEM_PROMPT_TEMPLATE.format(
         title=case["title"],
         prompt=case["prompt"],
         key_data=key_data_block,
         completion_instruction=completion_instruction,
+        exhibit_instruction=exhibit_instruction,
     )
 
 
@@ -257,7 +286,13 @@ Match this exact structure and key names:
 
 def _build_transcript(history: list[dict]) -> str:
     speaker = {"user": "Candidate", "model": "Interviewer"}
-    return "\n".join(f"{speaker[turn['role']]}: {turn['content']}" for turn in history)
+    lines = []
+    for turn in history:
+        if turn["role"] == "exhibit":
+            lines.append("[Interviewer reveals the exhibit/chart at this point in the conversation]")
+        else:
+            lines.append(f"{speaker[turn['role']]}: {turn['content']}")
+    return "\n".join(lines)
 
 
 def grade_case(case: dict, history: list[dict]) -> dict:
