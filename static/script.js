@@ -2,7 +2,7 @@ const chatLog = document.getElementById("chat-log");
 const chatForm = document.getElementById("chat-form");
 const chatInput = document.getElementById("chat-input");
 const sendBtn = document.getElementById("send-btn");
-const finishBtn = document.querySelector(".finish-btn");
+const finishBtn = document.getElementById("finish-btn");
 const micBtn = document.getElementById("mic-btn");
 const listeningIndicator = document.getElementById("listening-indicator");
 
@@ -140,7 +140,13 @@ chatForm.addEventListener("submit", async (e) => {
       addBubble(data.error || "Something went wrong.", "model");
     } else {
       addBubble(data.reply, "model");
-      if (finishBtn) finishBtn.disabled = false;
+      if (finishBtn) {
+        if (finishBtn.dataset.difficulty === "interview_ready") {
+          if (data.case_complete) finishBtn.classList.remove("hidden");
+        } else {
+          finishBtn.disabled = false;
+        }
+      }
     }
   } catch (err) {
     thinking.remove();

@@ -65,19 +65,35 @@ prompting them to request data and interpret it themselves.
 press on how they'd defend it.
 If the candidate tries to jump ahead — proposing a framework before asking any clarifying questions, or a \
 recommendation before doing any analysis — redirect them back to the current stage instead of following along.
-
+{completion_instruction}
 STYLE
 Respond the way a real interviewer talks in the room: a few sentences of natural dialogue, not a lecture, \
 not bullet points, not a report. Ask one question at a time.
 """
 
 
+CASE_COMPLETE_MARKER = "[[CASE_COMPLETE]]"
+
+COMPLETION_INSTRUCTION = f"""
+WHEN TO END THE INTERVIEW
+This is a full-length, realistic case interview — you decide when it's over, not the candidate; there is no \
+"finish" button they can press. Only end it after they've delivered a recommendation and you've reacted to \
+it, or if the conversation has genuinely run its course. When you decide the interview is over, close with a \
+natural wrap-up line — the way a real interviewer would — and then, on its own line at the very end of that \
+same message, put this exact marker: {CASE_COMPLETE_MARKER}
+Do not include this marker at any other time, including mid-case reactions to a strong answer — only when \
+you are truly ending the interview.
+"""
+
+
 def _build_system_prompt(case: dict) -> str:
     key_data_block = "\n".join(f"- {item}" for item in case["key_data"])
+    completion_instruction = COMPLETION_INSTRUCTION if case.get("difficulty") == "interview_ready" else ""
     return SYSTEM_PROMPT_TEMPLATE.format(
         title=case["title"],
         prompt=case["prompt"],
         key_data=key_data_block,
+        completion_instruction=completion_instruction,
     )
 
 
