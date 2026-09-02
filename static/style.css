@@ -356,6 +356,25 @@ body {
   margin-bottom: 4px;
 }
 
+.hire-recommendation-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.hire-recommendation-head .label {
+  margin-bottom: 0;
+}
+
+.overall-score-badge {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
 .summary-box {
   background: #fff;
   border: 1px solid #e0e1e6;
@@ -560,6 +579,31 @@ body {
   margin: 0 auto;
   padding: 60px 16px;
   text-align: center;
+}
+
+.progress-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #fff;
+  border: 1px solid #e0e1e6;
+  border-radius: 999px;
+  padding: 6px 14px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+  text-decoration: none;
+}
+
+.progress-badge:hover {
+  border-color: #1f3a5f;
+  color: #1f3a5f;
+}
+
+.streak-dot {
+  background: #d99a1b;
+  animation: pulse-dot 1.8s ease-in-out infinite;
 }
 
 .levels-page h1 {
@@ -771,4 +815,150 @@ body {
 .question-item:hover {
   background: #f8fafc;
   color: #1f3a5f;
+}
+
+/* progress.html */
+
+.progress-page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 32px 16px 60px;
+}
+
+.progress-empty {
+  color: #666;
+  font-size: 14.5px;
+  text-align: center;
+  padding: 60px 16px;
+}
+
+.progress-summary {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.progress-stat {
+  flex: 1;
+  background: #1f3a5f;
+  color: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+.progress-stat-value {
+  display: block;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.progress-stat-label {
+  display: block;
+  font-size: 12.5px;
+  color: #b9c6d8;
+  margin-top: 2px;
+}
+
+.progress-section {
+  margin-bottom: 28px;
+}
+
+.category-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.category-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.category-bar-label span:first-child {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.category-bar-label span:last-child {
+  color: #666;
+}
+
+.category-bar-track {
+  background: #eceef2;
+  border-radius: 999px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.category-bar-fill {
+  background: #1f3a5f;
+  height: 100%;
+  border-radius: 999px;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #e0e1e6;
+  border-radius: 10px;
+  padding: 10px 14px;
+  gap: 12px;
+}
+
+.history-item-main {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.history-item-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1a1a1a;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.history-item-meta {
+  display: flex;
+  gap: 6px;
+}
+
+.history-item-score {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.history-verdict {
+  font-size: 12px;
+  font-weight: 600;
+  color: #444;
+}
+
+.history-score {
+  font-size: 14px;
+  font-weight: 800;
+  color: #1f3a5f;
+}
+
+.category-badge.small,
+.difficulty-badge.small {
+  font-size: 10.5px;
+  padding: 2px 8px;
 }

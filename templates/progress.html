@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Progress — Case Interview Practice</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="progress-page">
+    <div class="questions-header">
+      <div>
+        <p class="debrief-kicker">Your practice history</p>
+        <h1>My Progress</h1>
+      </div>
+      <a href="{{ url_for('levels') }}" class="change-level-link">Practice a case</a>
+    </div>
+
+    <div id="progress-content"></div>
+  </div>
+
+  <script src="{{ url_for('static', filename='progress.js') }}"></script>
+  <script>
+    renderFullProgressPage(document.getElementById("progress-content"));
+  </script>
+</body>
+</html>

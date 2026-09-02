@@ -8,6 +8,8 @@
 </head>
 <body>
   <div class="levels-page">
+    <a href="{{ url_for('progress') }}" id="progress-badge" class="progress-badge hidden"></a>
+
     <h1>What level do you want to practice at?</h1>
     <p class="levels-intro">You can switch levels any time — pick whatever matches where you're at right now.</p>
 
@@ -28,5 +30,10 @@
       </button>
     </form>
   </div>
+
+  <script src="{{ url_for('static', filename='progress.js') }}"></script>
+  <script>
+    renderProgressBadge(document.getElementById("progress-badge"));
+  </script>
 </body>
 </html>

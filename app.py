@@ -108,6 +108,16 @@ def start_new_case():
     return case
 
 
+VERDICT_LABELS = ["Strong Hire", "Strong No Hire", "No Hire", "Borderline", "Hire"]  # longest match first
+
+
+def _parse_verdict(hire_recommendation):
+    for label in VERDICT_LABELS:
+        if hire_recommendation.strip().lower().startswith(label.lower()):
+            return label
+    return "Borderline"
+
+
 def _render_case_page(case, **kwargs):
     exhibit_svg = render_exhibit_svg(case["exhibit"]) if case.get("exhibit") else None
     return render_template(
@@ -124,6 +134,12 @@ def home():
     if case is None:
         case = start_new_case()
     return _render_case_page(case, history=session.get("history", []))
+
+
+@app.route("/progress")
+def progress():
+    # Entirely client-rendered from localStorage — this route just serves the shell template.
+    return render_template("progress.html")
 
 
 @app.route("/levels")
@@ -270,12 +286,19 @@ def end_case():
             error="Grading failed unexpectedly. Please try finishing the case again.",
         ), 502
 
+    category_scores = [result[key]["score"] for key in GRADING_CATEGORY_KEYS if key in result]
+    overall_score = round(sum(category_scores) / len(category_scores), 1) if category_scores else None
+    hire_recommendation = result.get("hire_recommendation", "")
+
     return render_template(
         "results.html",
         case=case,
         categories=[(key, result[key]) for key in GRADING_CATEGORY_KEYS],
         overall_summary=result.get("overall_summary", ""),
-        hire_recommendation=result.get("hire_recommendation", ""),
+        hire_recommendation=hire_recommendation,
+        overall_score=overall_score,
+        verdict=_parse_verdict(hire_recommendation),
+        difficulty_label=DIFFICULTY_LABELS.get(case["difficulty"], ""),
     )
 
 

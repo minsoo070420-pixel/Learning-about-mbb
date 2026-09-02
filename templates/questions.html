@@ -13,7 +13,10 @@
         <p class="debrief-kicker">{{ difficulty_label }}</p>
         <h1>Choose a question</h1>
       </div>
-      <a href="{{ url_for('levels') }}" class="change-level-link">Change level</a>
+      <div>
+        <a href="{{ url_for('levels') }}" class="change-level-link">Change level</a>
+        <a href="{{ url_for('progress') }}" class="change-level-link">My Progress</a>
+      </div>
     </div>
 
     <form action="{{ url_for('new_case') }}" method="post" class="surprise-me-form">

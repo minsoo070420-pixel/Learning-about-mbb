@@ -15,6 +15,7 @@
           <span class="difficulty-badge difficulty-{{ case.difficulty }}">{{ difficulty_label }}</span>
           <a href="{{ url_for('questions') }}" class="change-level-link">Choose a question</a>
           <a href="{{ url_for('levels') }}" class="change-level-link">Change level</a>
+          <a href="{{ url_for('progress') }}" class="change-level-link">My Progress</a>
         </div>
         <div class="header-actions">
           <form action="{{ url_for('end_case') }}" method="post">

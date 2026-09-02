@@ -8,11 +8,19 @@
 </head>
 <body>
   <div class="results-page">
-    <p class="debrief-kicker">A note from your interviewer</p>
+    <div class="questions-header">
+      <p class="debrief-kicker">A note from your interviewer</p>
+      <a href="{{ url_for('progress') }}" class="change-level-link">My Progress</a>
+    </div>
     <h1>{{ case.title }}</h1>
 
     <div class="hire-recommendation">
-      <span class="label">Hire Recommendation</span>
+      <div class="hire-recommendation-head">
+        <span class="label">Hire Recommendation</span>
+        {% if overall_score is not none %}
+          <span class="overall-score-badge">{{ overall_score }}/10</span>
+        {% endif %}
+      </div>
       {{ hire_recommendation }}
     </div>
 
@@ -65,5 +73,19 @@
       <button type="submit">&larr; Start a new case</button>
     </form>
   </div>
+
+  <script src="{{ url_for('static', filename='progress.js') }}"></script>
+  <script>
+    saveProgressRecord({
+      caseId: {{ case.id }},
+      title: {{ case.title | tojson }},
+      category: {{ case.category | tojson }},
+      difficulty: {{ case.difficulty | tojson }},
+      overallScore: {{ overall_score | tojson }},
+      verdict: {{ verdict | tojson }},
+      date: new Date().toISOString().slice(0, 10),
+      timestamp: Date.now(),
+    });
+  </script>
 </body>
 </html>
