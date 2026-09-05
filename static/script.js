@@ -153,13 +153,7 @@ chatForm.addEventListener("submit", async (e) => {
     } else {
       addBubble(data.reply, "model");
       if (data.exhibit_svg) addExhibit(data.exhibit_svg);
-      if (finishBtn) {
-        if (finishBtn.dataset.difficulty === "interview_ready") {
-          if (data.case_complete) finishBtn.classList.remove("hidden");
-        } else {
-          finishBtn.disabled = false;
-        }
-      }
+      if (finishBtn && data.case_complete) finishBtn.classList.remove("hidden");
     }
   } catch (err) {
     thinking.remove();

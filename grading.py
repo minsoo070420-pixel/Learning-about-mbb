@@ -107,6 +107,15 @@ stage yourself, and don't just repeat "we haven't covered X yet" without engagin
 recommendation — engage with the substance of it rather than making them repeat a stage they've already done.
 What you're really evaluating is whether the candidate structures their OWN path through clarifying \
 questions, a framework, analysis, and a recommendation — not whether you walked them through it in lockstep.
+
+Real cases also include a distinct BRAINSTORMING step that's easy to skip past: once the analysis has \
+surfaced a real insight (a root cause, a key risk, a clear opportunity), a real interviewer explicitly \
+invites the candidate to generate options before asking for a final recommendation — something like "so \
+what should the client actually do about that?" — rather than jumping straight from the insight to "give me \
+your recommendation." If the candidate has landed on a genuine insight but hasn't been invited to brainstorm \
+options yet, offer that invitation explicitly before asking for a recommendation. If they skip straight to a \
+recommendation anyway, follow the rule above: don't block them, but press on what options they considered \
+and discarded along the way.
 {completion_instruction}{exhibit_instruction}
 STYLE
 Respond the way a real interviewer talks in the room: a few sentences of natural dialogue, not a lecture, \
@@ -161,7 +170,7 @@ it once they've clearly asked for that data.
 
 def _build_system_prompt(case: dict) -> str:
     key_data_block = "\n".join(f"- {item}" for item in case["key_data"])
-    completion_instruction = COMPLETION_INSTRUCTION if case.get("difficulty") == "interview_ready" else ""
+    completion_instruction = COMPLETION_INSTRUCTION
     exhibit_instruction = ""
     if case.get("exhibit"):
         exhibit_instruction = EXHIBIT_INSTRUCTION_TEMPLATE.format(exhibit_topic=case["exhibit"]["title"])
@@ -216,16 +225,21 @@ situation, and draw sound, non-obvious insights rather than generic textbook obs
 4. hypothesis_driven_thinking — Did they form a working hypothesis early and test it efficiently, rather \
 than exploring the case exhaustively and aimlessly or waiting to be spoon-fed direction?
 
-5. communication_clarity — Was their reasoning easy to follow — top-down, signposted, answer-first — or \
-did the interviewer have to dig to figure out what they were actually thinking?
+5. communication_clarity — Was their reasoning easy to follow — top-down, signposted, answer-first? Strong \
+candidates also pause at natural breakpoints (after laying out a framework, after walking through an \
+analysis) to let you react, rather than rambling through several sections back to back uninterrupted — did \
+they give you room to weigh in, or did you have to dig to figure out what they were actually thinking?
 
 6. handling_ambiguity — When faced with incomplete data, a curveball, or a redirect from the interviewer, \
 did they state a reasonable assumption and keep moving, or did they freeze, get flustered, or ask the \
 interviewer to resolve the ambiguity for them?
 
-7. synthesis_and_recommendation — Did they land a clear, actionable recommendation with a defensible \
-"so what," structured as an answer first followed by supporting logic — or leave it vague, hedged, or \
-unresolved?
+7. synthesis_and_recommendation — Did they land a clear, actionable recommendation with a defensible "so \
+what," structured as an answer first followed by supporting logic? A complete synthesis also names at least \
+one concrete risk to the recommendation and at least one concrete next step — most candidates remember the \
+recommendation itself but forget these two, so a synthesis that skips either is incomplete even when the \
+core recommendation is sound. Score down for a recommendation missing a named risk, missing a named next \
+step, or one that stays vague, hedged, or unresolved.
 """
 
 GRADING_SYSTEM_PROMPT = f"""You are a senior consultant at Bain & Company who just finished conducting a live \

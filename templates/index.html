@@ -19,11 +19,7 @@
         </div>
         <div class="header-actions">
           <form action="{{ url_for('end_case') }}" method="post">
-            {% if case.difficulty == 'interview_ready' %}
-              <button type="submit" id="finish-btn" class="finish-btn {{ '' if case_complete else 'hidden' }}" data-difficulty="{{ case.difficulty }}">Get Your Feedback</button>
-            {% else %}
-              <button type="submit" id="finish-btn" class="finish-btn" data-difficulty="{{ case.difficulty }}" {{ 'disabled' if not history }}>Finish Case &amp; Get Feedback</button>
-            {% endif %}
+            <button type="submit" id="finish-btn" class="finish-btn {{ '' if case_complete else 'hidden' }}" data-difficulty="{{ case.difficulty }}">Get Your Feedback</button>
           </form>
           <form action="{{ url_for('new_case') }}" method="post">
             <button type="submit" class="new-case-btn">New Case</button>
@@ -34,9 +30,7 @@
       <p class="case-prompt">{{ case.prompt }}</p>
     </header>
 
-    {% if case.difficulty == 'interview_ready' %}
-      <p class="interviewer-controlled-note">This is a full case — your interviewer decides when it wraps up, not a button.</p>
-    {% endif %}
+    <p class="interviewer-controlled-note">Your interviewer decides when the case wraps up, not a button.</p>
 
     {% if error %}
       <p class="error-banner">{{ error }}</p>
