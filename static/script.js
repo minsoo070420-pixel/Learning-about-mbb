@@ -18,6 +18,30 @@ function addBubble(text, role) {
   return bubble;
 }
 
+// Reveals text into an existing bubble a few characters at a time, the way
+// ChatGPT/Claude streams tokens in, rather than dumping the full reply at once.
+function streamTextInto(bubble, fullText) {
+  return new Promise((resolve) => {
+    bubble.textContent = "";
+    bubble.classList.add("streaming");
+    let i = 0;
+    const CHARS_PER_TICK = 3;
+    const TICK_MS = 15;
+    const tick = () => {
+      i = Math.min(i + CHARS_PER_TICK, fullText.length);
+      bubble.textContent = fullText.slice(0, i);
+      chatLog.scrollTop = chatLog.scrollHeight;
+      if (i < fullText.length) {
+        setTimeout(tick, TICK_MS);
+      } else {
+        bubble.classList.remove("streaming");
+        resolve();
+      }
+    };
+    tick();
+  });
+}
+
 function addExhibit(svgMarkup) {
   const empty = chatLog.querySelector(".chat-empty");
   if (empty) empty.remove();
@@ -147,17 +171,17 @@ chatForm.addEventListener("submit", async (e) => {
     });
     const data = await res.json();
 
-    thinking.remove();
+    thinking.classList.remove("thinking");
     if (!res.ok) {
-      addBubble(data.error || "Something went wrong.", "model");
+      await streamTextInto(thinking, data.error || "Something went wrong.");
     } else {
-      addBubble(data.reply, "model");
+      await streamTextInto(thinking, data.reply);
       if (data.exhibit_svg) addExhibit(data.exhibit_svg);
       if (finishBtn && data.case_complete) finishBtn.classList.remove("hidden");
     }
   } catch (err) {
-    thinking.remove();
-    addBubble("Network error — please try again.", "model");
+    thinking.classList.remove("thinking");
+    await streamTextInto(thinking, "Network error — please try again.");
   } finally {
     chatInput.disabled = false;
     sendBtn.disabled = false;

@@ -178,6 +178,23 @@ body {
   font-style: italic;
 }
 
+.bubble.streaming::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: #1f3a5f;
+  animation: cursor-blink 0.8s step-start infinite;
+}
+
+@keyframes cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
 .chat-input-row {
   display: flex;
   align-items: flex-end;
