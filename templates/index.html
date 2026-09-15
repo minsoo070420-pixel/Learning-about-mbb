@@ -43,6 +43,8 @@
             <p class="exhibit-label">Exhibit 1</p>
             {{ exhibit_svg | safe }}
           </div>
+        {% elif turn.role == 'hint' %}
+          <div class="bubble hint"><span class="hint-label">💡 Hint</span>{{ turn.content }}</div>
         {% else %}
           <div class="bubble {{ 'candidate' if turn.role == 'user' else 'interviewer' }}">
             {{ turn.content }}
@@ -69,6 +71,9 @@
           <line x1="8" y1="23" x2="16" y2="23"/>
         </svg>
       </button>
+      {% if case.difficulty != 'interview_ready' %}
+        <button type="button" id="hint-btn" class="hint-btn" title="Get a nudge, not the answer">💡 Hint</button>
+      {% endif %}
       <button type="submit" id="send-btn">Send</button>
     </form>
   </div>

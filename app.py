@@ -6,7 +6,9 @@ from datetime import date          # used to detect when a new calendar day star
 from dotenv import load_dotenv     # loads variables from .env into the environment
 from flask import Flask, render_template, request, session, jsonify, redirect, url_for
 from charts import render_exhibit_svg
-from grading import interview_response, grade_case, GRADING_CATEGORY_KEYS, CASE_COMPLETE_MARKER, SHOW_EXHIBIT_MARKER
+from grading import (
+    interview_response, grade_case, get_hint, GRADING_CATEGORY_KEYS, CASE_COMPLETE_MARKER, SHOW_EXHIBIT_MARKER,
+)
 
 load_dotenv()
 
@@ -246,6 +248,36 @@ def chat():
     if show_exhibit:
         response["exhibit_svg"] = render_exhibit_svg(case["exhibit"])
     return jsonify(response)
+
+
+@app.route("/hint", methods=["POST"])
+def hint():
+    case_id = session.get("case_id")
+    case = CASES_BY_ID.get(case_id)
+    if case is None:
+        return jsonify({"error": "No active case. Refresh the page to start one."}), 400
+
+    if case.get("difficulty") == "interview_ready":
+        return jsonify({"error": "Hints aren't available at the Interview Ready level."}), 400
+
+    if _customer_daily_limit_reached():
+        return jsonify({"error": "You've reached today's usage limit for this tool. Please come back tomorrow."}), 429
+
+    if _daily_limit_reached():
+        return jsonify({"error": "This tool has hit its site-wide usage limit for today. Please try again tomorrow."}), 429
+
+    history = session.get("history", [])
+    chat_history = [turn for turn in history if turn["role"] in ("user", "model")]
+    try:
+        hint_text = get_hint(case, chat_history)
+    except Exception as e:
+        print(f"get_hint failed: {e}")
+        return jsonify({"error": "Couldn't get a hint just now. Please try again."}), 502
+
+    history.append({"role": "hint", "content": hint_text})
+    session["history"] = history
+
+    return jsonify({"hint": hint_text})
 
 
 @app.route("/end-case", methods=["POST"])

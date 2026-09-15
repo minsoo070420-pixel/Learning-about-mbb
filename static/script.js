@@ -3,6 +3,7 @@ const chatForm = document.getElementById("chat-form");
 const chatInput = document.getElementById("chat-input");
 const sendBtn = document.getElementById("send-btn");
 const finishBtn = document.getElementById("finish-btn");
+const hintBtn = document.getElementById("hint-btn");
 const micBtn = document.getElementById("mic-btn");
 const listeningIndicator = document.getElementById("listening-indicator");
 
@@ -159,6 +160,7 @@ chatForm.addEventListener("submit", async (e) => {
   chatInput.disabled = true;
   sendBtn.disabled = true;
   micBtn.disabled = true;
+  if (hintBtn) hintBtn.disabled = true;
 
   const thinking = addBubble("Thinking…", "model");
   thinking.classList.add("thinking");
@@ -186,9 +188,44 @@ chatForm.addEventListener("submit", async (e) => {
     chatInput.disabled = false;
     sendBtn.disabled = false;
     if (SpeechRecognitionImpl) micBtn.disabled = false;
+    if (hintBtn) hintBtn.disabled = false;
     chatInput.focus();
   }
 });
+
+if (hintBtn) {
+  hintBtn.addEventListener("click", async () => {
+    stopListening();
+    chatInput.disabled = true;
+    sendBtn.disabled = true;
+    micBtn.disabled = true;
+    hintBtn.disabled = true;
+
+    const empty = chatLog.querySelector(".chat-empty");
+    if (empty) empty.remove();
+
+    const hintBubble = document.createElement("div");
+    hintBubble.className = "bubble hint";
+    hintBubble.innerHTML = `<span class="hint-label">💡 Hint</span><span class="hint-text">Thinking…</span>`;
+    chatLog.appendChild(hintBubble);
+    chatLog.scrollTop = chatLog.scrollHeight;
+    const hintText = hintBubble.querySelector(".hint-text");
+
+    try {
+      const res = await fetch("/hint", { method: "POST" });
+      const data = await res.json();
+      await streamTextInto(hintText, res.ok ? data.hint : (data.error || "Couldn't get a hint just now."));
+    } catch (err) {
+      await streamTextInto(hintText, "Network error — please try again.");
+    } finally {
+      chatInput.disabled = false;
+      sendBtn.disabled = false;
+      if (SpeechRecognitionImpl) micBtn.disabled = false;
+      hintBtn.disabled = false;
+      chatInput.focus();
+    }
+  });
+}
 
 chatInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter" && !e.shiftKey) {

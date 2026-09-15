@@ -118,22 +118,7 @@ your recommendation." If the candidate has landed on a genuine insight but hasn'
 options yet, offer that invitation explicitly before asking for a recommendation. If they skip straight to a \
 recommendation anyway, follow the rule above: don't block them, but press on what options they considered \
 and discarded along the way.
-Once you've invited it, hold real candidates to a real bar: three ideas is on the low end, four is the \
-minimum before you should push for more ("what else?" / "any other angle?"), and a genuinely strong answer \
-gives you something like 7-8, ideally grouped under a quick spoken structure ("a couple of these are pricing \
-levers, a couple are cost levers...") rather than a flat, unstructured list. If they stop at two or three \
-with no prompting from you to elaborate, that's a real gap worth naming, not something to wave through.
-When the brainstorm is specifically about risks, real candidates tend to reach for three recurring buckets — \
-market-side (shifting demand, competitive response, consolidation), financial (costs running over, revenue \
-falling short, funding), and operational (capacity constraints, execution complexity, timeline slippage). \
-You don't need to hand them this structure, but if their risk list is just a flat pile with no grouping, \
-that's worth naming as a gap the same way an unstructured brainstorm is.
-
-The same real-bar logic applies to a final recommendation. A real recommendation has four parts — the \
-answer, the reasoning behind it, the risks, and the next steps — and a single line on any of the last three \
-is thin. If they give you a recommendation with only one risk or only one next step, don't just accept it: \
-ask for another ("what's a second risk to that?" / "what else would you want to do right after this?") \
-before treating the synthesis as complete.
+{rigor_bar}
 {completion_instruction}{exhibit_instruction}
 STYLE
 Respond the way a real interviewer talks in the room: a few sentences of natural dialogue, not a lecture, \
@@ -180,6 +165,48 @@ the one initiating each stage instead of waiting for the candidate to.\
 """
 
 
+RIGOR_BAR_FOUNDATIONAL = """\
+This is a Beginner-level case — the goal is to build the basic habit of generating options and giving a \
+clear answer, not to hit a quantity target. Hold a gentle bar: two solid, distinct ideas in a brainstorm is a \
+fine answer, three or more is great. If they land one genuine idea and stop, one friendly nudge for another \
+angle ("any other direction you'd consider?") is enough — don't grill them for a long list after that.
+A recommendation at this level just needs a clear answer and one real reason behind it. Treat a named risk or \
+a next step as a nice bonus if they happen to offer one, not something to press for — the goal right now is a \
+confident, answer-first recommendation, not the full four-part structure. Stay warm and encouraging throughout \
+— this may be someone's very first case.\
+"""
+
+RIGOR_BAR_DEVELOPING = """\
+This is an Intermediate-level case — hold a middle bar, past pure basics but short of full interview rigor. \
+In a brainstorm, three distinct ideas is a solid answer, four or five is strong. If they stop at one or two \
+with no prompting, one nudge for more is worth it ("what's another angle on that?"), but don't push past a \
+handful.
+A recommendation at this level wants a clear answer, real reasoning behind it, and at least one of either a \
+named risk or a named next step — not necessarily both, and not multiple of each yet. If they give a bare \
+answer with no reasoning at all, press for the reasoning; but don't demand the full four-part structure with \
+several points in each part — that's what Interview Ready is for.\
+"""
+
+RIGOR_BAR_ADVANCED = """\
+Once you've invited it, hold real candidates to a real bar: three ideas is on the low end, four is the \
+minimum before you should push for more ("what else?" / "any other angle?"), and a genuinely strong answer \
+gives you something like 7-8, ideally grouped under a quick spoken structure ("a couple of these are pricing \
+levers, a couple are cost levers...") rather than a flat, unstructured list. If they stop at two or three \
+with no prompting from you to elaborate, that's a real gap worth naming, not something to wave through.
+When the brainstorm is specifically about risks, real candidates tend to reach for three recurring buckets — \
+market-side (shifting demand, competitive response, consolidation), financial (costs running over, revenue \
+falling short, funding), and operational (capacity constraints, execution complexity, timeline slippage). \
+You don't need to hand them this structure, but if their risk list is just a flat pile with no grouping, \
+that's worth naming as a gap the same way an unstructured brainstorm is.
+
+The same real-bar logic applies to a final recommendation. A real recommendation has four parts — the \
+answer, the reasoning behind it, the risks, and the next steps — and a single line on any of the last three \
+is thin. If they give you a recommendation with only one risk or only one next step, don't just accept it: \
+ask for another ("what's a second risk to that?" / "what else would you want to do right after this?") \
+before treating the synthesis as complete.\
+"""
+
+
 CASE_COMPLETE_MARKER = "[[CASE_COMPLETE]]"
 
 COMPLETION_INSTRUCTION = f"""
@@ -219,12 +246,19 @@ it once they've clearly asked for that data.
 """
 
 
+RIGOR_BAR_BY_DIFFICULTY = {
+    "beginner": RIGOR_BAR_FOUNDATIONAL,
+    "intermediate": RIGOR_BAR_DEVELOPING,
+    "interview_ready": RIGOR_BAR_ADVANCED,
+}
+
+
 def _build_system_prompt(case: dict) -> str:
     key_data_block = "\n".join(f"- {item}" for item in case["key_data"])
     completion_instruction = COMPLETION_INSTRUCTION
-    case_flow_style = (
-        CASE_FLOW_CANDIDATE_LED if case.get("difficulty") == "interview_ready" else CASE_FLOW_INTERVIEWER_DRIVEN
-    )
+    difficulty = case.get("difficulty")
+    case_flow_style = CASE_FLOW_CANDIDATE_LED if difficulty == "interview_ready" else CASE_FLOW_INTERVIEWER_DRIVEN
+    rigor_bar = RIGOR_BAR_BY_DIFFICULTY.get(difficulty, RIGOR_BAR_ADVANCED)
     exhibit_instruction = ""
     if case.get("exhibit"):
         exhibit_instruction = EXHIBIT_INSTRUCTION_TEMPLATE.format(exhibit_topic=case["exhibit"]["title"])
@@ -233,6 +267,7 @@ def _build_system_prompt(case: dict) -> str:
         prompt=case["prompt"],
         key_data=key_data_block,
         case_flow_style=case_flow_style,
+        rigor_bar=rigor_bar,
         completion_instruction=completion_instruction,
         exhibit_instruction=exhibit_instruction,
     )
@@ -260,12 +295,133 @@ def interview_response(case: dict, history: list[dict], latest_message: str) -> 
     return response.text.strip()
 
 
+HINT_SYSTEM_PROMPT = """You are a friendly case-interview coach sitting in on a practice session for a \
+Beginner or Intermediate candidate who looks stuck. Step out of the interviewer role for this one message and \
+speak directly to the candidate as a coach leaning over their shoulder — not as the person running the case.
+
+THE CASE
+Title: {title}
+Prompt: {prompt}
+
+WHAT'S HAPPENED IN THE CASE SO FAR
+{transcript}
+
+YOUR JOB
+Give ONE short, warm nudge — 1 to 3 sentences — that helps the candidate figure out their own next move, \
+without doing that move for them. Point at a direction or a category to think in, never the specific numbers, \
+the specific framework branches, or the actual analysis itself.
+
+- If they haven't asked any clarifying questions yet, the hint might just be suggesting that's a good place \
+to start, and naming ONE type of thing worth clarifying (not the specific question to ask).
+- If they have a framework but seem stuck moving into analysis, point at what KIND of calculation or \
+comparison might help, without setting it up for them.
+- If they're mid-calculation and stuck, point at what piece might be missing or worth double-checking, \
+without stating the number.
+- If it's a brainstorm and they've stalled at one or two ideas, prompt them to think in categories rather \
+than handing them the categories.
+
+GOOD: "Think about what levers a business like this actually has to grow revenue — is it more customers, \
+more spend per customer, or an entirely new customer segment?"
+BAD (gives away the answer): "You should look at raising prices by 10% and adding a loyalty program."
+BAD (too vague to actually help): "Just think about it logically and you'll get there."
+
+Keep it encouraging and specific to THIS case — never a generic tip that could paste onto any case. Speak in \
+second person, plainly, the way a TA would during office hours.
+"""
+
+
+def _format_transcript(history: list[dict]) -> str:
+    if not history:
+        return "(The candidate hasn't said anything yet — this is the very start of the case.)"
+    speaker = {"user": "Candidate", "model": "Interviewer"}
+    return "\n".join(f"{speaker.get(turn['role'], turn['role'])}: {turn['content']}" for turn in history)
+
+
+def get_hint(case: dict, history: list[dict]) -> str:
+    """Returns a short, non-answer-revealing nudge for a candidate who looks stuck."""
+    prompt = HINT_SYSTEM_PROMPT.format(
+        title=case["title"],
+        prompt=case["prompt"],
+        transcript=_format_transcript(history),
+    )
+    response = client.models.generate_content(
+        model=MODEL_NAME,
+        contents=_to_contents([], "Give me a hint."),
+        config=types.GenerateContentConfig(
+            system_instruction=prompt,
+            temperature=0.6,
+        ),
+    )
+    return response.text.strip()
+
+
 GRADING_CATEGORY_KEYS = [
     "structuring_mece", "quantitative_reasoning", "business_judgment", "hypothesis_driven_thinking",
     "communication_clarity", "handling_ambiguity", "synthesis_and_recommendation",
 ]
 
-GRADING_CATEGORY_LIST = """
+_BUSINESS_JUDGMENT_BAR = {
+    "beginner": (
+        "When asked to brainstorm options, two distinct ideas is a fine answer at this level, three or more "
+        "is great — this stage is about building the habit of generating options at all, not hitting a "
+        "quantity target. Don't score down hard for a short-but-genuine list; score down for not attempting "
+        "one."
+    ),
+    "intermediate": (
+        "When asked to brainstorm options, three distinct ideas is a solid answer at this level, four or five "
+        "is strong. Don't hold this candidate to the 7-8-idea bar Interview Ready candidates are held to, but "
+        "one or two ideas with no prompting to elaborate is worth scoring down."
+    ),
+    "interview_ready": (
+        "When asked to brainstorm options, three ideas is on the low end and four should be treated as a bare "
+        "minimum — a strong answer produces something closer to 7-8, grouped under a quick spoken structure "
+        "rather than a flat list. Score down a brainstorm that stalls at two or three ideas with no push "
+        "needed to get there."
+    ),
+}
+
+_SYNTHESIS_BAR = {
+    "beginner": (
+        "At this level, a complete synthesis just needs a clear answer and one real reason behind it — full "
+        "stop. A named risk or next step is a bonus if it's there, never a requirement. HARD RULE: if the "
+        "candidate's closing recommendation states a clear answer and at least one reason that is factually "
+        "correct given their own numbers, this category scores 6 or higher, no matter what — even if the "
+        "recommendation doesn't mention risks, next steps, or anything else raised earlier in the "
+        "conversation. Do not lower the score because a strong point made earlier (a risk, a next step, an "
+        "insight) is absent from the closing recommendation specifically — that's an Interview-Ready-level "
+        "expectation about full-conversation synthesis, not a Beginner one. The ONLY reasons to score below 6 "
+        "here: the answer itself is unclear or missing, the stated reason is wrong or contradicts the "
+        "candidate's own numbers, or there's no reasoning at all behind the answer."
+    ),
+    "intermediate": (
+        "At this level, a complete synthesis needs a clear answer and real reasoning — a named risk or next "
+        "step ANYWHERE in the conversation (not necessarily in the closing recommendation itself) is enough "
+        "to satisfy that part. HARD RULE: if the candidate's closing recommendation states a clear answer "
+        "with correct reasoning, AND at least one risk or next step was named at any point in the transcript "
+        "(even earlier, in response to a different question), this category scores 6 or higher, no matter "
+        "whether the closing recommendation itself repeats that risk/next step or not. Do not lower the score "
+        "just because the final recommendation didn't re-list something already established earlier — that's "
+        "an Interview-Ready-level expectation, not an Intermediate one. Score below 6 only if: the answer is "
+        "unclear, the reasoning is missing or wrong, or NO risk or next step was named anywhere at all in the "
+        "whole conversation."
+    ),
+    "interview_ready": (
+        "A complete synthesis follows the industry-standard shape — recommendation, reasoning, risks, next "
+        "steps — and each of those last three parts wants more than a single line: one piece of reasoning is "
+        "thin, 2-3 is robust; one risk is a weak answer, 2-3 is the real bar; one next step reads as an "
+        "afterthought, 2-3 shows genuine forward planning. Most candidates remember the recommendation itself "
+        "but shortchange reasoning, risks, or next steps down to a single throwaway line each — that's still "
+        "incomplete even when the core recommendation is sound. Score down for a recommendation that's "
+        "missing any of the four parts, or that only gives a single thin point where 2-3 are expected, or "
+        "that stays vague, hedged, or unresolved."
+    ),
+}
+
+
+def _grading_category_list(difficulty: str) -> str:
+    business_judgment_bar = _BUSINESS_JUDGMENT_BAR.get(difficulty, _BUSINESS_JUDGMENT_BAR["interview_ready"])
+    synthesis_bar = _SYNTHESIS_BAR.get(difficulty, _SYNTHESIS_BAR["interview_ready"])
+    return f"""
 1. structuring_mece — Did the candidate build a clear, mutually exclusive, collectively exhaustive \
 framework before diving into analysis, and actually use it to drive the rest of the conversation (rather \
 than stating it once and abandoning it)?
@@ -278,10 +434,7 @@ real factor the calculation left out (an investment cost, a timing effect, a sec
 Note when a candidate does this versus when they stop the moment the arithmetic is done.
 
 3. business_judgment — Did they prioritize the issues that actually mattered for this specific client and \
-situation, and draw sound, non-obvious insights rather than generic textbook observations? When asked to \
-brainstorm options, three ideas is on the low end and four should be treated as a bare minimum — a strong \
-answer produces something closer to 7-8, grouped under a quick spoken structure rather than a flat list. \
-Score down a brainstorm that stalls at two or three ideas with no push needed to get there.
+situation, and draw sound, non-obvious insights rather than generic textbook observations? {business_judgment_bar}
 
 4. hypothesis_driven_thinking — Did they form a working hypothesis early and test it efficiently, rather \
 than exploring the case exhaustively and aimlessly or waiting to be spoon-fed direction?
@@ -300,22 +453,64 @@ did they state a reasonable assumption and keep moving, or did they freeze, get 
 interviewer to resolve the ambiguity for them?
 
 7. synthesis_and_recommendation — Did they land a clear, actionable recommendation with a defensible "so \
-what," structured as an answer first followed by supporting logic? A complete synthesis follows the \
-industry-standard shape — recommendation, reasoning, risks, next steps — and each of those last three parts \
-wants more than a single line: one piece of reasoning is thin, 2-3 is robust; one risk is a weak answer, \
-2-3 is the real bar; one next step reads as an afterthought, 2-3 shows genuine forward planning. Most \
-candidates remember the recommendation itself but shortchange reasoning, risks, or next steps down to a \
-single throwaway line each — that's still incomplete even when the core recommendation is sound. Score down \
-for a recommendation that's missing any of the four parts, or that only gives a single thin point where \
-2-3 are expected, or that stays vague, hedged, or unresolved.
+what," structured as an answer first followed by supporting logic? {synthesis_bar}
 """
 
-GRADING_SYSTEM_PROMPT = f"""You are a senior consultant at Bain & Company who just finished conducting a live \
-case interview, and you're now giving the candidate their debrief in person — the way a real Bain interviewer \
-sits down with someone right after a case and tells them straight how it went. You will be given the case and \
-the full transcript of the conversation. Grade this candidate exactly the way a real Bain interviewer \
-calibrates in a hiring debrief — direct, specific, and grounded in what they actually said, not encouraging \
-or diplomatic.
+_GRADING_PERSONA = {
+    "beginner": (
+        "You are an experienced case-interview coach who just ran a practice case with someone brand new to "
+        "case interviews, and you're now giving them their debrief in person. You will be given the case and "
+        "the full transcript of the conversation. Grade this the way a good coach calibrates for someone just "
+        "starting out — honest and specific about what to work on, grounded in what they actually said, but "
+        "patient and encouraging rather than the hiring-bar intensity of a final-round debrief."
+    ),
+    "intermediate": (
+        "You are an experienced case-interview coach who just ran a practice case with someone building up "
+        "toward full interview-level cases, and you're now giving them their debrief in person. You will be "
+        "given the case and the full transcript of the conversation. Grade this the way a good coach "
+        "calibrates at this stage — honest, specific, and grounded in what they actually said, holding real "
+        "expectations without the full hiring-bar intensity of a final-round interview debrief."
+    ),
+    "interview_ready": (
+        "You are a senior consultant at Bain & Company who just finished conducting a live case interview, "
+        "and you're now giving the candidate their debrief in person — the way a real Bain interviewer sits "
+        "down with someone right after a case and tells them straight how it went. You will be given the case "
+        "and the full transcript of the conversation. Grade this candidate exactly the way a real Bain "
+        "interviewer calibrates in a hiring debrief — direct, specific, and grounded in what they actually "
+        "said, not encouraging or diplomatic."
+    ),
+}
+
+_GRADING_ANCHORS = {
+    "beginner": (
+        "- 9-10: excellent for this stage — real command of the fundamentals already, ready to try "
+        "Intermediate-level cases.\n"
+        "- 5-6: a solid first attempt — the right instincts are showing up, but there are real gaps to build "
+        "on with practice.\n"
+        "- 1-3: this fundamental isn't there yet — worth deliberate practice before it becomes second nature."
+    ),
+    "intermediate": (
+        "- 9-10: excellent for this stage — genuinely strong, ready to try Interview Ready cases.\n"
+        "- 5-6: the right instincts are there, but real gaps remain before this is dependable under full "
+        "interview pressure.\n"
+        "- 1-3: fundamental gaps — this needs real, deliberate work before it's interview-ready."
+    ),
+    "interview_ready": (
+        "- 9-10: offer-level — this is how a real Bain new-hire performs in the room; you would extend an "
+        "offer on this dimension alone.\n"
+        "- 5-6: borderline — some of the right instincts are there, but real gaps remain; not a clear yes or "
+        "no.\n"
+        "- 1-3: fundamental gaps — the problem isn't polish or nerves, it's that something core to the skill "
+        "is missing entirely."
+    ),
+}
+
+
+def _grading_system_prompt(difficulty: str) -> str:
+    persona = _GRADING_PERSONA.get(difficulty, _GRADING_PERSONA["interview_ready"])
+    anchors = _GRADING_ANCHORS.get(difficulty, _GRADING_ANCHORS["interview_ready"])
+    category_list = _grading_category_list(difficulty)
+    return f"""{persona}
 
 VOICE:
 Write like you're actually talking to this candidate, not filling out an evaluation form about them for \
@@ -330,14 +525,10 @@ with you would say it, not the way a scorecard would print it. The "quote" field
 the candidate's own words, copied verbatim, so it naturally stays in their voice, not yours.
 
 RUBRIC — score each category from 1 to 10:
-{GRADING_CATEGORY_LIST}
+{category_list}
 
 SCORING ANCHORS (apply consistently across all categories):
-- 9-10: offer-level — this is how a real Bain new-hire performs in the room; you would extend an offer on \
-this dimension alone.
-- 5-6: borderline — some of the right instincts are there, but real gaps remain; not a clear yes or no.
-- 1-3: fundamental gaps — the problem isn't polish or nerves, it's that something core to the skill is \
-missing entirely.
+{anchors}
 
 RULES YOU MUST FOLLOW:
 1. For every one of the 7 categories, you must quote the candidate's exact words from the transcript \
@@ -440,7 +631,7 @@ def grade_case(case: dict, history: list[dict]) -> dict:
         model=MODEL_NAME,
         contents=contents,
         config=types.GenerateContentConfig(
-            system_instruction=GRADING_SYSTEM_PROMPT,
+            system_instruction=_grading_system_prompt(case.get("difficulty")),
             temperature=0.3,
             response_mime_type="application/json",
         ),
