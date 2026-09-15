@@ -84,6 +84,91 @@ function escapeHtml(s) {
   return div.innerHTML;
 }
 
+function titleCaseKey(key) {
+  return key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+function renderCategoryCard(key, data, open) {
+  return `
+    <details class="card" ${open ? "open" : ""}>
+      <summary>
+        <span class="category-name">${escapeHtml(titleCaseKey(key))}</span>
+        <span class="score">${escapeHtml(String(data.score))}/10</span>
+      </summary>
+      <div class="card-body">
+        <p class="field-label">In your words</p>
+        <blockquote>${escapeHtml(data.quote)}</blockquote>
+        <p class="field-label">Feedback</p>
+        <p>${escapeHtml(data.feedback)}</p>
+        <p class="field-label">Where to go from here</p>
+        <p>${escapeHtml(data.improvement)}</p>
+      </div>
+    </details>
+  `;
+}
+
+function renderStoredFeedback(record) {
+  const fb = record.feedback;
+  if (!fb || !fb.categories) {
+    return `<p class="progress-empty">No saved feedback for this case — it was completed before feedback history was added.</p>`;
+  }
+
+  const scoreText = typeof record.overallScore === "number" ? `${record.overallScore.toFixed(1)}/10` : "—";
+  const econKeys = ["quantitative_reasoning", "business_judgment"];
+  const allKeys = Object.keys(fb.categories);
+  const econHtml = econKeys
+    .filter((k) => fb.categories[k])
+    .map((k) => renderCategoryCard(k, fb.categories[k], false))
+    .join("");
+  const restHtml = allKeys
+    .filter((k) => !econKeys.includes(k))
+    .map((k, i) => renderCategoryCard(k, fb.categories[k], false))
+    .join("");
+
+  const bottomLineHtml =
+    fb.conclusiveFeedback && fb.conclusiveFeedback.length === 3
+      ? `
+        <section class="bottom-line">
+          <div class="bottom-line-item strength">
+            <span class="bottom-line-icon" title="Strongest moment">+</span>
+            <p class="bottom-line-text">${escapeHtml(fb.conclusiveFeedback[0])}</p>
+          </div>
+          <div class="bottom-line-item gap">
+            <span class="bottom-line-icon" title="Biggest gap">!</span>
+            <p class="bottom-line-text">${escapeHtml(fb.conclusiveFeedback[1])}</p>
+          </div>
+          <div class="bottom-line-item next">
+            <span class="bottom-line-icon" title="Next time">&rarr;</span>
+            <p class="bottom-line-text">${escapeHtml(fb.conclusiveFeedback[2])}</p>
+          </div>
+        </section>
+      `
+      : "";
+
+  return `
+    <div class="hire-recommendation">
+      <div class="hire-recommendation-head">
+        <span class="label">Hire Recommendation</span>
+        <span class="overall-score-badge">${scoreText}</span>
+      </div>
+      ${escapeHtml(fb.hireRecommendation || "")}
+    </div>
+    ${bottomLineHtml}
+    <section class="summary-box">
+      <p class="summary-text">${escapeHtml(fb.overallSummary || "")}</p>
+      <p class="signature">&mdash; Your interviewer</p>
+    </section>
+    <section class="econ-spotlight">
+      <h2 class="section-heading">The Economics of Your Case</h2>
+      ${econHtml}
+    </section>
+    <section>
+      <h2 class="section-heading">The Rest of the Debrief</h2>
+      ${restHtml}
+    </section>
+  `;
+}
+
 function renderProgressBadge(container) {
   const records = getProgressRecords();
   if (records.length === 0) {
@@ -158,19 +243,24 @@ function renderFullProgressPage(container) {
           .map((r) => {
             const scoreText = typeof r.overallScore === "number" ? `${r.overallScore.toFixed(1)}/10` : "—";
             return `
-              <div class="history-item">
-                <div class="history-item-main">
-                  <span class="history-item-title">${escapeHtml(r.title)}</span>
-                  <span class="history-item-meta">
-                    <span class="category-badge small">${escapeHtml(r.category)}</span>
-                    <span class="difficulty-badge small difficulty-${escapeHtml(r.difficulty)}">${escapeHtml(DIFFICULTY_LABELS[r.difficulty] || r.difficulty)}</span>
-                  </span>
+              <details class="history-item">
+                <summary class="history-item-row">
+                  <div class="history-item-main">
+                    <span class="history-item-title">${escapeHtml(r.title)}</span>
+                    <span class="history-item-meta">
+                      <span class="category-badge small">${escapeHtml(r.category)}</span>
+                      <span class="difficulty-badge small difficulty-${escapeHtml(r.difficulty)}">${escapeHtml(DIFFICULTY_LABELS[r.difficulty] || r.difficulty)}</span>
+                    </span>
+                  </div>
+                  <div class="history-item-score">
+                    <span class="history-verdict">${escapeHtml(r.verdict || "")}</span>
+                    <span class="history-score">${scoreText}</span>
+                  </div>
+                </summary>
+                <div class="history-item-feedback">
+                  ${renderStoredFeedback(r)}
                 </div>
-                <div class="history-item-score">
-                  <span class="history-verdict">${escapeHtml(r.verdict || "")}</span>
-                  <span class="history-score">${scoreText}</span>
-                </div>
-              </div>
+              </details>
             `;
           })
           .join("")}

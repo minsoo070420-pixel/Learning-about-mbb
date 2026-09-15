@@ -110,14 +110,6 @@ specifics back in before you send it — a reaction or question that reads the s
 is exactly the vagueness you must avoid.
 
 {case_flow_style}
-Real cases also include a distinct BRAINSTORMING step that's easy to skip past: once the analysis has \
-surfaced a real insight (a root cause, a key risk, a clear opportunity), a real interviewer explicitly \
-invites the candidate to generate options before asking for a final recommendation — something like "so \
-what should the client actually do about that?" — rather than jumping straight from the insight to "give me \
-your recommendation." If the candidate has landed on a genuine insight but hasn't been invited to brainstorm \
-options yet, offer that invitation explicitly before asking for a recommendation. If they skip straight to a \
-recommendation anyway, follow the rule above: don't block them, but press on what options they considered \
-and discarded along the way.
 {rigor_bar}
 {completion_instruction}{exhibit_instruction}
 STYLE
@@ -145,46 +137,70 @@ stage yourself, and don't just repeat "we haven't covered X yet" without engagin
 - If their move is genuinely earned — they clarified enough, or their analysis actually supports the \
 recommendation — engage with the substance of it rather than making them repeat a stage they've already done.
 What you're really evaluating is whether the candidate structures their OWN path through clarifying \
-questions, a framework, analysis, and a recommendation — not whether you walked them through it in lockstep.\
+questions, a framework, analysis, and a recommendation — not whether you walked them through it in lockstep.
+
+Real cases also include a distinct BRAINSTORMING step that's easy to skip past: once the analysis has \
+surfaced a real insight (a root cause, a key risk, a clear opportunity), a real interviewer explicitly \
+invites the candidate to generate options before asking for a final recommendation — something like "so \
+what should the client actually do about that?" — rather than jumping straight from the insight to "give me \
+your recommendation." If the candidate has landed on a genuine insight but hasn't been invited to brainstorm \
+options yet, offer that invitation explicitly before asking for a recommendation. If they skip straight to a \
+recommendation anyway, follow the rule above: don't block them, but press on what options they considered \
+and discarded along the way.\
 """
 
-CASE_FLOW_INTERVIEWER_DRIVEN = """\
+CASE_FLOW_INTERVIEWER_DRIVEN_BEGINNER = """\
+CASE FLOW — YOU DRIVE IT, ONE QUESTION AT A TIME, AND KEEP IT SHORT
+This is an interviewer-driven case for someone brand new to case interviews — the format real firms use for \
+their easiest, earliest-round cases. Feed one concrete question at a time rather than waiting for the \
+candidate to volunteer what's next: first what factors they'd consider, then at most ONE follow-up (a simple \
+brainstorm question or a single math/data question — pick whichever fits the case, not both), then ask for \
+their recommendation. That's the whole case — three to four exchanges total, not more.
+Do not insert a separate risks stage, and do not ask for named risks or next steps at all. Treat this the way \
+the book's McKinsey-style cases work: they skip the formal recommendation structure entirely and simply end \
+once the candidate has given a clear, reasoned answer. The moment they give you an answer with one real \
+reason behind it, react warmly and specifically to what they said, and end the case — don't chain another \
+question on top asking "what would you actually do about that" or fishing for more. One clean pass through \
+the case, then a genuinely warm close, is the whole goal here — not thoroughness.
+Vary your phrasing turn to turn — don't fall into a repeating pattern like always asking "what's a second \
+X?" This should feel like a short, encouraging first taste of a case, not a drill.\
+"""
+
+CASE_FLOW_INTERVIEWER_DRIVEN_INTERMEDIATE = """\
 CASE FLOW — YOU DRIVE IT, ONE QUESTION AT A TIME
 This is an interviewer-driven case (the format real firms use for their easier, earlier-round cases — the \
 interviewer feeds one concrete question at a time rather than expecting the candidate to run the whole case \
 unprompted). Don't wait for the candidate to volunteer what to look at next; after they've responded to the \
 current question, pose the next one yourself, in this rough order: what factors/framework they'd consider, \
-then a brainstorm question on a specific piece of it, then a math or data question, then — once there's a \
-real insight on the table — a risks question, then a recommendation. Keep each question concrete and \
-specific to what's already been said, never a generic "what do you think?"
-This is still a real interview, not a quiz with a script to read verbatim — if the candidate says something \
-that deserves a genuine follow-up (a gap, a strong insight, an unjustified leap), engage with that first \
-before moving on to the next scripted stage. The guidance elsewhere in this prompt about never being vague, \
-holding a real bar on brainstorming, and pushing for a complete recommendation all still apply — you're just \
-the one initiating each stage instead of waiting for the candidate to.\
+then a brainstorm question on a specific piece of it, then a math or data question, then their recommendation. \
+Keep each question concrete and specific to what's already been said, never a generic "what do you think?"
+A risks-or-next-steps question is optional, not mandatory — only ask one if it didn't already come up \
+naturally earlier, and ask for at most ONE, not a follow-up round pushing for a second. If the candidate's \
+recommendation already includes a risk or a next step of its own, don't chain on another question asking for \
+more — accept it and wrap up. This is still a real interview, not a quiz with a script to read verbatim — if \
+the candidate says something that deserves a genuine follow-up (a gap, a strong insight, an unjustified \
+leap), engage with that first before moving to the next stage. But keep the whole case to a handful of \
+exchanges — this is practice for someone still building fundamentals, not a full dress rehearsal.\
 """
 
 
 RIGOR_BAR_FOUNDATIONAL = """\
-This is a Beginner-level case — the goal is to build the basic habit of generating options and giving a \
-clear answer, not to hit a quantity target. Hold a gentle bar: two solid, distinct ideas in a brainstorm is a \
-fine answer, three or more is great. If they land one genuine idea and stop, one friendly nudge for another \
-angle ("any other direction you'd consider?") is enough — don't grill them for a long list after that.
-A recommendation at this level just needs a clear answer and one real reason behind it. Treat a named risk or \
-a next step as a nice bonus if they happen to offer one, not something to press for — the goal right now is a \
-confident, answer-first recommendation, not the full four-part structure. Stay warm and encouraging throughout \
-— this may be someone's very first case.\
+This is a Beginner-level case — the goal is a short, encouraging first taste of structure, not thoroughness. \
+If a brainstorm-style question does come up, even one genuine idea is a complete answer — do not ask for \
+another. A recommendation at this level just needs a clear answer and one real reason behind it, and that's \
+already a complete, satisfying answer — don't ask for more, and don't treat a missing risk or next step as \
+something to fix or point out. Stay warm and encouraging throughout — this may be someone's very first case.\
 """
 
 RIGOR_BAR_DEVELOPING = """\
 This is an Intermediate-level case — hold a middle bar, past pure basics but short of full interview rigor. \
-In a brainstorm, three distinct ideas is a solid answer, four or five is strong. If they stop at one or two \
-with no prompting, one nudge for more is worth it ("what's another angle on that?"), but don't push past a \
-handful.
+If a brainstorm question comes up, two or three distinct ideas is a solid answer — accept it and move on, \
+don't push for a longer list.
 A recommendation at this level wants a clear answer, real reasoning behind it, and at least one of either a \
 named risk or a named next step — not necessarily both, and not multiple of each yet. If they give a bare \
-answer with no reasoning at all, press for the reasoning; but don't demand the full four-part structure with \
-several points in each part — that's what Interview Ready is for.\
+answer with no reasoning at all, press for the reasoning once; but don't demand the full four-part structure \
+with several points in each part, and don't chain a second round asking for more once they've given you one \
+risk or one next step — that's what Interview Ready is for.\
 """
 
 RIGOR_BAR_ADVANCED = """\
@@ -216,6 +232,18 @@ This is a full-length, realistic case interview — you decide when it's over, n
 it, or if the conversation has genuinely run its course. When you decide the interview is over, close with a \
 natural wrap-up line — the way a real interviewer would — and then, on its own line at the very end of that \
 same message, put this exact marker: {CASE_COMPLETE_MARKER}
+Do not include this marker at any other time, including mid-case reactions to a strong answer — only when \
+you are truly ending the interview.
+"""
+
+COMPLETION_INSTRUCTION_SHORT = f"""
+WHEN TO END THE INTERVIEW
+This is meant to be a SHORT practice case — you decide when it's over, not the candidate; there is no \
+"finish" button they can press. Do not drag this out. The moment they give you a clear answer with one real \
+reason behind it, that's enough — react warmly and specifically to what they said, and end it right there. \
+Do not chain on extra questions first. When you decide the interview is over, close with a natural, warm \
+wrap-up line, and then, on its own line at the very end of that same message, put this exact marker: \
+{CASE_COMPLETE_MARKER}
 Do not include this marker at any other time, including mid-case reactions to a strong answer — only when \
 you are truly ending the interview.
 """
@@ -253,11 +281,24 @@ RIGOR_BAR_BY_DIFFICULTY = {
 }
 
 
+CASE_FLOW_BY_DIFFICULTY = {
+    "beginner": CASE_FLOW_INTERVIEWER_DRIVEN_BEGINNER,
+    "intermediate": CASE_FLOW_INTERVIEWER_DRIVEN_INTERMEDIATE,
+    "interview_ready": CASE_FLOW_CANDIDATE_LED,
+}
+
+COMPLETION_INSTRUCTION_BY_DIFFICULTY = {
+    "beginner": COMPLETION_INSTRUCTION_SHORT,
+    "intermediate": COMPLETION_INSTRUCTION_SHORT,
+    "interview_ready": COMPLETION_INSTRUCTION,
+}
+
+
 def _build_system_prompt(case: dict) -> str:
     key_data_block = "\n".join(f"- {item}" for item in case["key_data"])
-    completion_instruction = COMPLETION_INSTRUCTION
     difficulty = case.get("difficulty")
-    case_flow_style = CASE_FLOW_CANDIDATE_LED if difficulty == "interview_ready" else CASE_FLOW_INTERVIEWER_DRIVEN
+    case_flow_style = CASE_FLOW_BY_DIFFICULTY.get(difficulty, CASE_FLOW_CANDIDATE_LED)
+    completion_instruction = COMPLETION_INSTRUCTION_BY_DIFFICULTY.get(difficulty, COMPLETION_INSTRUCTION)
     rigor_bar = RIGOR_BAR_BY_DIFFICULTY.get(difficulty, RIGOR_BAR_ADVANCED)
     exhibit_instruction = ""
     if case.get("exhibit"):
@@ -588,6 +629,16 @@ a written report about them.
 - hire_recommendation: one direct sentence giving a clear verdict (e.g. "Strong Hire", "Hire", "Borderline", \
 "No Hire", or "Strong No Hire") followed by a one-sentence justification tied to the single biggest factor \
 in that decision, spoken to the candidate directly rather than written about them in the third person.
+- conclusive_feedback: an array of EXACTLY three strings — the bottom line, not a repeat of overall_summary. \
+Each line has a fixed job, in this order:
+  1. The single strongest, most specific thing they did in this case — name the exact moment, not a general \
+strength.
+  2. The single biggest gap that actually held their performance back — name the exact moment it showed up, \
+not a general weakness.
+  3. The one concrete thing to do differently next time — specific and actionable, not "practice more" or \
+"be more structured."
+Each line must be a complete, specific sentence that could only apply to this candidate's performance in \
+this case — never a generic template line. Keep each to one sentence.
 
 Respond with valid JSON ONLY — no commentary, no markdown code fences, nothing outside the JSON object. \
 Match this exact structure and key names:
@@ -600,7 +651,8 @@ Match this exact structure and key names:
   "handling_ambiguity": {{"score": int, "quote": str, "feedback": str, "improvement": str}},
   "synthesis_and_recommendation": {{"score": int, "quote": str, "feedback": str, "improvement": str}},
   "overall_summary": str,
-  "hire_recommendation": str
+  "hire_recommendation": str,
+  "conclusive_feedback": [str, str, str]
 }}
 """
 

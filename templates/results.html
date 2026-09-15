@@ -24,6 +24,23 @@
       {{ hire_recommendation }}
     </div>
 
+    {% if conclusive_feedback and conclusive_feedback|length == 3 %}
+    <section class="bottom-line">
+      <div class="bottom-line-item strength">
+        <span class="bottom-line-icon" title="Strongest moment">+</span>
+        <p class="bottom-line-text">{{ conclusive_feedback[0] }}</p>
+      </div>
+      <div class="bottom-line-item gap">
+        <span class="bottom-line-icon" title="Biggest gap">!</span>
+        <p class="bottom-line-text">{{ conclusive_feedback[1] }}</p>
+      </div>
+      <div class="bottom-line-item next">
+        <span class="bottom-line-icon" title="Next time">&rarr;</span>
+        <p class="bottom-line-text">{{ conclusive_feedback[2] }}</p>
+      </div>
+    </section>
+    {% endif %}
+
     <section class="summary-box">
       <p class="summary-text">{{ overall_summary }}</p>
       <p class="signature">&mdash; Your interviewer</p>
@@ -85,6 +102,12 @@
       verdict: {{ verdict | tojson }},
       date: new Date().toISOString().slice(0, 10),
       timestamp: Date.now(),
+      feedback: {
+        categories: Object.fromEntries({{ categories | tojson }}),
+        overallSummary: {{ overall_summary | tojson }},
+        hireRecommendation: {{ hire_recommendation | tojson }},
+        conclusiveFeedback: {{ conclusive_feedback | tojson }},
+      },
     });
   </script>
 </body>

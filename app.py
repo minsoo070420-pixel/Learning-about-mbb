@@ -328,6 +328,7 @@ def end_case():
         categories=[(key, result[key]) for key in GRADING_CATEGORY_KEYS],
         overall_summary=result.get("overall_summary", ""),
         hire_recommendation=hire_recommendation,
+        conclusive_feedback=result.get("conclusive_feedback", []),
         overall_score=overall_score,
         verdict=_parse_verdict(hire_recommendation),
         difficulty_label=DIFFICULTY_LABELS.get(case["difficulty"], ""),
