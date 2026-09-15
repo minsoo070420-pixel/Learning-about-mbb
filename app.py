@@ -5,6 +5,7 @@ import re                          # strips the [[CASE_COMPLETE]] marker out of 
 from datetime import date          # used to detect when a new calendar day starts, to reset the daily count
 from dotenv import load_dotenv     # loads variables from .env into the environment
 from flask import Flask, render_template, request, session, jsonify, redirect, url_for
+from flask_session import Session
 from charts import render_exhibit_svg
 from grading import (
     interview_response, grade_case, get_hint, GRADING_CATEGORY_KEYS, CASE_COMPLETE_MARKER, SHOW_EXHIBIT_MARKER,
@@ -24,7 +25,18 @@ app.config.update(
     # over plain http, so this stays True for local dev too — it only actually matters once this
     # is deployed on a real domain, where it stops the session cookie from ever being sent unencrypted.
     SESSION_COOKIE_SECURE=True,
+    # Flask's default session backend puts the whole session (here: the full chat transcript) into
+    # a signed client-side cookie, which runs into the ~4KB browser cookie ceiling on a case with
+    # more than a handful of turns. Store session data server-side instead — the cookie then only
+    # holds a small signed session ID. Filesystem storage is ephemeral across restarts/deploys, same
+    # as the in-memory daily-usage counters below, which is an acceptable, already-established
+    # tradeoff for this single-worker deployment (see PER_CUSTOMER_DAILY_LIMIT comment).
+    SESSION_TYPE="filesystem",
+    SESSION_FILE_DIR=os.path.join(os.path.dirname(__file__), ".flask_session"),
+    SESSION_PERMANENT=False,
+    SESSION_USE_SIGNER=True,
 )
+Session(app)
 
 with open(os.path.join(os.path.dirname(__file__), "cases.json")) as f:
     CASES = json.load(f)

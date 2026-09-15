@@ -21,6 +21,24 @@ function getProgressRecords() {
   }
 }
 
+// Only the most recent MAX_FULL_FEEDBACK cases keep their full feedback (categories, summary,
+// conclusive feedback) — older ones are archived (feedback stripped, summary stats kept) so
+// localStorage doesn't grow without bound as someone completes more and more cases.
+const MAX_FULL_FEEDBACK = 3;
+
+function pruneOldFeedback(records) {
+  const withFeedbackIdx = [];
+  records.forEach((r, i) => {
+    if (r.feedback) withFeedbackIdx.push(i);
+  });
+  const toArchive = withFeedbackIdx.slice(0, Math.max(0, withFeedbackIdx.length - MAX_FULL_FEEDBACK));
+  for (const i of toArchive) {
+    delete records[i].feedback;
+    records[i].archived = true;
+  }
+  return records;
+}
+
 function saveProgressRecord(record) {
   try {
     const records = getProgressRecords();
@@ -28,7 +46,7 @@ function saveProgressRecord(record) {
     // Guard against double-recording on an accidental page refresh of the results page.
     if (last && last.caseId === record.caseId && last.timestamp === record.timestamp) return;
     records.push(record);
-    localStorage.setItem(PROGRESS_KEY, JSON.stringify(records));
+    localStorage.setItem(PROGRESS_KEY, JSON.stringify(pruneOldFeedback(records)));
   } catch (err) {
     // localStorage can throw in private-browsing/blocked-storage contexts — progress tracking
     // is a nice-to-have, so fail silently rather than breaking the results page.
@@ -110,7 +128,10 @@ function renderCategoryCard(key, data, open) {
 function renderStoredFeedback(record) {
   const fb = record.feedback;
   if (!fb || !fb.categories) {
-    return `<p class="progress-empty">No saved feedback for this case — it was completed before feedback history was added.</p>`;
+    const reason = record.archived
+      ? `Full feedback for this case was archived to keep storage light — only your ${MAX_FULL_FEEDBACK} most recent cases keep the complete debrief.`
+      : "No saved feedback for this case — it was completed before feedback history was added.";
+    return `<p class="progress-empty">${escapeHtml(reason)}</p>`;
   }
 
   const scoreText = typeof record.overallScore === "number" ? `${record.overallScore.toFixed(1)}/10` : "—";
@@ -183,7 +204,12 @@ function renderProgressBadge(container) {
 }
 
 function renderFullProgressPage(container) {
-  const records = getProgressRecords();
+  const records = pruneOldFeedback(getProgressRecords());
+  try {
+    localStorage.setItem(PROGRESS_KEY, JSON.stringify(records));
+  } catch (err) {
+    // Best-effort — the in-memory prune above still makes this render correctly either way.
+  }
 
   if (records.length === 0) {
     container.innerHTML = `
