@@ -43,10 +43,10 @@
   },
   {
     "id": 2,
-    "title": "Size the Market Before a Friend Invests in Enterprise Endpoint Protection",
+    "title": "Size the Enterprise Endpoint Protection Market for a New Entrant",
     "category": "market sizing",
     "difficulty": "interview_ready",
-    "prompt": "A friend of yours just got the chance to buy into a small, 8-year-old cybersecurity software business in Chiang Mai that sells enterprise endpoint protection, and the current owner is retiring and wants a decision within the month. Before she puts her savings into it, she's asked for your gut check on how big the opportunity actually is. Roughly how many seats of enterprise endpoint protection do you think get sold each year across Thailand, and is that even a market worth entering?",
+    "prompt": "Greymark Inc. has operated in cybersecurity software out of Chiang Mai for 8 years, employing around 200 people, and is weighing whether Thailand is worth a serious push. They've engaged your team to size the annual market for enterprise endpoint protection in Thailand before deciding whether to build a cybersecurity software business there from scratch. The CEO wants a defensible number by the end of the week, backed by a clear methodology, not just a gut feel — how would you get there?",
     "key_data": [
       "Population of Thailand: roughly 120 million people",
       "Estimated share of the population that regularly purchases enterprise endpoint protection: 40%",
@@ -169,10 +169,10 @@
   },
   {
     "id": 5,
-    "title": "Size the Market Before a Friend Invests in Container Shipping Routes",
+    "title": "Size the Container Shipping Routes Market for a New Entrant",
     "category": "market sizing",
     "difficulty": "interview_ready",
-    "prompt": "A friend of yours just got the chance to buy into a small, 12-year-old shipping and marine business in Cape Town that sells container shipping routes, and the current owner is retiring and wants a decision within the month. Before she puts her savings into it, she's asked for your gut check on how big the opportunity actually is. Roughly how many containers of container shipping routes do you think get sold each year across South Africa, and is that even a market worth entering?",
+    "prompt": "Prescott & Co. has operated in shipping and marine out of Cape Town for 12 years, operating 16 locations, and is weighing whether South Africa is worth a serious push. They've engaged your team to size the annual market for container shipping routes in South Africa before deciding whether to build a shipping and marine business there from scratch. The CEO wants a defensible number by the end of the week, backed by a clear methodology, not just a gut feel — how would you get there?",
     "key_data": [
       "Population of South Africa: roughly 90 million people",
       "Estimated share of the population that regularly purchases container shipping routes: 35%",
@@ -421,10 +421,10 @@
   },
   {
     "id": 11,
-    "title": "Size the Market Before a Friend Invests in Premium Skincare",
+    "title": "Size the Premium Skincare Market for a New Entrant",
     "category": "market sizing",
     "difficulty": "interview_ready",
-    "prompt": "A friend of yours just got the chance to buy into a small, 15-year-old beauty and personal care business in Osaka that sells premium skincare, and the current owner is retiring and wants a decision within the month. Before she puts her savings into it, she's asked for your gut check on how big the opportunity actually is. Roughly how many units of premium skincare do you think get sold each year across Japan, and is that even a market worth entering?",
+    "prompt": "Hollowell & Co. has operated in beauty and personal care out of Osaka for 15 years, operating 21 locations, and is weighing whether Japan is worth a serious push. They've engaged your team to size the annual market for premium skincare in Japan before deciding whether to build a beauty and personal care business there from scratch. The CEO wants a defensible number by the end of the week, backed by a clear methodology, not just a gut feel — how would you get there?",
     "key_data": [
       "Population of Japan: roughly 180 million people",
       "Estimated share of the population that regularly purchases premium skincare: 40%",
@@ -547,10 +547,10 @@
   },
   {
     "id": 14,
-    "title": "Size the Market Before a Friend Invests in Midscale Hotel Rooms",
+    "title": "Size the Midscale Hotel Rooms Market for a New Entrant",
     "category": "market sizing",
     "difficulty": "interview_ready",
-    "prompt": "A friend of yours just got the chance to buy into a small, 8-year-old hotel and hospitality business in Rotterdam that sells midscale hotel rooms, and the current owner is retiring and wants a decision within the month. Before she puts her savings into it, she's asked for your gut check on how big the opportunity actually is. Roughly how many room-nights of midscale hotel rooms do you think get sold each year across the Netherlands, and is that even a market worth entering?",
+    "prompt": "Larkspur Inc. has operated in hotel and hospitality out of Rotterdam for 8 years, generating roughly $555M in annual revenue, and is weighing whether the Netherlands is worth a serious push. You're sitting across from Larkspur Inc.'s head of strategy, who leans back and says: 'Before we spend another dollar on this hotel and hospitality expansion into the Netherlands, I need to know — how many room-nights of midscale hotel rooms are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
       "Population of the Netherlands: roughly 250 million people",
       "Estimated share of the population that regularly purchases midscale hotel rooms: 30%",
@@ -589,10 +589,10 @@
   },
   {
     "id": 15,
-    "title": "Size the Market Before a Friend Invests in Video Streaming Subscriptions",
+    "title": "Size the Video Streaming Subscriptions Market for a New Entrant",
     "category": "market sizing",
     "difficulty": "interview_ready",
-    "prompt": "A friend of yours just got the chance to buy into a small, 20-year-old media and streaming business in Guadalajara that sells video streaming subscriptions, and the current owner is retiring and wants a decision within the month. Before she puts her savings into it, she's asked for your gut check on how big the opportunity actually is. Roughly how many subscribers of video streaming subscriptions do you think get sold each year across Mexico, and is that even a market worth entering?",
+    "prompt": "Oxendale Group has operated in media and streaming out of Guadalajara for 20 years, generating roughly $173M in annual revenue, and is weighing whether Mexico is worth a serious push. They've engaged your team to size the annual market for video streaming subscriptions in Mexico before deciding whether to build a media and streaming business there from scratch. The CEO wants a defensible number by the end of the week, backed by a clear methodology, not just a gut feel — how would you get there?",
     "key_data": [
       "Population of Mexico: roughly 180 million people",
       "Estimated share of the population that regularly purchases video streaming subscriptions: 18%",
@@ -631,10 +631,10 @@
   },
   {
     "id": 16,
-    "title": "Size the Market Before a Friend Invests in Analog Microchips",
+    "title": "Size the Analog Microchips Market for a New Entrant",
     "category": "market sizing",
     "difficulty": "interview_ready",
-    "prompt": "A friend of yours just got the chance to buy into a small, 30-year-old semiconductor manufacturing business in Manchester that sells analog microchips, and the current owner is retiring and wants a decision within the month. Before she puts her savings into it, she's asked for your gut check on how big the opportunity actually is. Roughly how many chips of analog microchips do you think get sold each year across the UK, and is that even a market worth entering?",
+    "prompt": "Ironbark Ventures has operated in semiconductor manufacturing out of Manchester for 30 years, employing around 5000 people, and is weighing whether the UK is worth a serious push. You're sitting across from Ironbark Ventures's head of strategy, who leans back and says: 'Before we spend another dollar on this semiconductor manufacturing expansion into the UK, I need to know — how many chips of analog microchips are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
       "Population of the UK: roughly 330 million people",
       "Estimated share of the population that regularly purchases analog microchips: 5%",
@@ -799,10 +799,10 @@
   },
   {
     "id": 20,
-    "title": "Size the Market Before a Friend Invests in Colocation Server Space",
+    "title": "Size the Colocation Server Space Market for a New Entrant",
     "category": "market sizing",
     "difficulty": "interview_ready",
-    "prompt": "A friend of yours just got the chance to buy into a small, 25-year-old data centers business in Milan that sells colocation server space, and the current owner is retiring and wants a decision within the month. Before she puts her savings into it, she's asked for your gut check on how big the opportunity actually is. Roughly how many racks of colocation server space do you think get sold each year across Italy, and is that even a market worth entering?",
+    "prompt": "Ravensdale Holdings has operated in data centers out of Milan for 25 years, employing around 1000 people, and is weighing whether Italy is worth a serious push. You're sitting across from Ravensdale Holdings's head of strategy, who leans back and says: 'Before we spend another dollar on this data centers expansion into Italy, I need to know — how many racks of colocation server space are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
       "Population of Italy: roughly 65 million people",
       "Estimated share of the population that regularly purchases colocation server space: 28%",
@@ -883,10 +883,10 @@
   },
   {
     "id": 22,
-    "title": "Size the Market Before a Friend Invests in Prepaid Mobile Plans",
+    "title": "Size the Prepaid Mobile Plans Market for a New Entrant",
     "category": "market sizing",
     "difficulty": "interview_ready",
-    "prompt": "A friend of yours just got the chance to buy into a small, 30-year-old telecommunications business in Manchester that sells prepaid mobile plans, and the current owner is retiring and wants a decision within the month. Before she puts her savings into it, she's asked for your gut check on how big the opportunity actually is. Roughly how many subscribers of prepaid mobile plans do you think get sold each year across the UK, and is that even a market worth entering?",
+    "prompt": "Ravensdale Group has operated in telecommunications out of Manchester for 30 years, operating 7 locations, and is weighing whether the UK is worth a serious push. You're sitting across from Ravensdale Group's head of strategy, who leans back and says: 'Before we spend another dollar on this telecommunications expansion into the UK, I need to know — how many subscribers of prepaid mobile plans are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
       "Population of the UK: roughly 90 million people",
       "Estimated share of the population that regularly purchases prepaid mobile plans: 12%",
@@ -967,10 +967,10 @@
   },
   {
     "id": 24,
-    "title": "Size the Market Before a Friend Invests in Bottled Sparkling Water",
+    "title": "Size the Bottled Sparkling Water Market for a New Entrant",
     "category": "market sizing",
     "difficulty": "interview_ready",
-    "prompt": "A friend of yours just got the chance to buy into a small, 12-year-old consumer packaged goods business in Guadalajara that sells bottled sparkling water, and the current owner is retiring and wants a decision within the month. Before she puts her savings into it, she's asked for your gut check on how big the opportunity actually is. Roughly how many cases of bottled sparkling water do you think get sold each year across Mexico, and is that even a market worth entering?",
+    "prompt": "Ashfield Inc. has operated in consumer packaged goods out of Guadalajara for 12 years, generating roughly $774M in annual revenue, and is weighing whether Mexico is worth a serious push. You're sitting across from Ashfield Inc.'s head of strategy, who leans back and says: 'Before we spend another dollar on this consumer packaged goods expansion into Mexico, I need to know — how many cases of bottled sparkling water are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
       "Population of Mexico: roughly 120 million people",
       "Estimated share of the population that regularly purchases bottled sparkling water: 22%",
@@ -1009,10 +1009,10 @@
   },
   {
     "id": 25,
-    "title": "Size the Market Before a Friend Invests in Mobile Free-To-Play Games",
+    "title": "Size the Mobile Free-To-Play Games Market for a New Entrant",
     "category": "market sizing",
     "difficulty": "interview_ready",
-    "prompt": "A friend of yours just got the chance to buy into a small, 15-year-old gaming business in Austin, Texas that sells mobile free-to-play games, and the current owner is retiring and wants a decision within the month. Before she puts her savings into it, she's asked for your gut check on how big the opportunity actually is. Roughly how many players of mobile free-to-play games do you think get sold each year across the United States, and is that even a market worth entering?",
+    "prompt": "Millbrook Group has operated in gaming out of Austin, Texas for 15 years, operating 14 locations, and is weighing whether the United States is worth a serious push. You're sitting across from Millbrook Group's head of strategy, who leans back and says: 'Before we spend another dollar on this gaming expansion into the United States, I need to know — how many players of mobile free-to-play games are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
       "Population of the United States: roughly 90 million people",
       "Estimated share of the population that regularly purchases mobile free-to-play games: 5%",
@@ -1261,10 +1261,10 @@
   },
   {
     "id": 31,
-    "title": "Size the Market Before a Friend Invests in A Branded Cholesterol Drug",
+    "title": "Size the Branded Cholesterol Drug Market for a New Entrant",
     "category": "market sizing",
     "difficulty": "interview_ready",
-    "prompt": "A friend of yours just got the chance to buy into a small, 40-year-old pharmaceuticals business in Lyon that sells a branded cholesterol drug, and the current owner is retiring and wants a decision within the month. Before she puts her savings into it, she's asked for your gut check on how big the opportunity actually is. Roughly how many prescriptions of a branded cholesterol drug do you think get sold each year across France, and is that even a market worth entering?",
+    "prompt": "Hollowell & Co. has operated in pharmaceuticals out of Lyon for 40 years, generating roughly $187M in annual revenue, and is weighing whether France is worth a serious push. They've engaged your team to size the annual market for a branded cholesterol drug in France before deciding whether to build a pharmaceuticals business there from scratch. The CEO wants a defensible number by the end of the week, backed by a clear methodology, not just a gut feel — how would you get there?",
     "key_data": [
       "Population of France: roughly 250 million people",
       "Estimated share of the population that regularly purchases a branded cholesterol drug: 22%",
@@ -1345,10 +1345,10 @@
   },
   {
     "id": 33,
-    "title": "Size the Market Before a Friend Invests in Athletic Footwear",
+    "title": "Size the Athletic Footwear Market for a New Entrant",
     "category": "market sizing",
     "difficulty": "interview_ready",
-    "prompt": "A friend of yours just got the chance to buy into a small, 8-year-old apparel retail business in Manchester that sells athletic footwear, and the current owner is retiring and wants a decision within the month. Before she puts her savings into it, she's asked for your gut check on how big the opportunity actually is. Roughly how many pairs of athletic footwear do you think get sold each year across the UK, and is that even a market worth entering?",
+    "prompt": "Carrow Inc. has operated in apparel retail out of Manchester for 8 years, employing around 200 people, and is weighing whether the UK is worth a serious push. They've engaged your team to size the annual market for athletic footwear in the UK before deciding whether to build an apparel retail business there from scratch. The CEO wants a defensible number by the end of the week, backed by a clear methodology, not just a gut feel — how would you get there?",
     "key_data": [
       "Population of the UK: roughly 180 million people",
       "Estimated share of the population that regularly purchases athletic footwear: 10%",
@@ -1639,10 +1639,10 @@
   },
   {
     "id": 40,
-    "title": "Size the Market Before a Friend Invests in Boutique Gym Memberships",
+    "title": "Size the Boutique Gym Memberships Market for a New Entrant",
     "category": "market sizing",
     "difficulty": "interview_ready",
-    "prompt": "A friend of yours just got the chance to buy into a small, 12-year-old fitness and wellness business in Guadalajara that sells boutique gym memberships, and the current owner is retiring and wants a decision within the month. Before she puts her savings into it, she's asked for your gut check on how big the opportunity actually is. Roughly how many memberships of boutique gym memberships do you think get sold each year across Mexico, and is that even a market worth entering?",
+    "prompt": "Kellstone Inc. has operated in fitness and wellness out of Guadalajara for 12 years, generating roughly $757M in annual revenue, and is weighing whether Mexico is worth a serious push. They've engaged your team to size the annual market for boutique gym memberships in Mexico before deciding whether to build a fitness and wellness business there from scratch. The CEO wants a defensible number by the end of the week, backed by a clear methodology, not just a gut feel — how would you get there?",
     "key_data": [
       "Population of Mexico: roughly 180 million people",
       "Estimated share of the population that regularly purchases boutique gym memberships: 15%",
@@ -1681,10 +1681,10 @@
   },
   {
     "id": 41,
-    "title": "Size the Market Before a Friend Invests in Leather Handbags",
+    "title": "Size the Leather Handbags Market for a New Entrant",
     "category": "market sizing",
     "difficulty": "interview_ready",
-    "prompt": "A friend of yours just got the chance to buy into a small, 15-year-old luxury goods business in Krakow that sells leather handbags, and the current owner is retiring and wants a decision within the month. Before she puts her savings into it, she's asked for your gut check on how big the opportunity actually is. Roughly how many units of leather handbags do you think get sold each year across Poland, and is that even a market worth entering?",
+    "prompt": "Prescott Ventures has operated in luxury goods out of Krakow for 15 years, operating 3 locations, and is weighing whether Poland is worth a serious push. They've engaged your team to size the annual market for leather handbags in Poland before deciding whether to build a luxury goods business there from scratch. The CEO wants a defensible number by the end of the week, backed by a clear methodology, not just a gut feel — how would you get there?",
     "key_data": [
       "Population of Poland: roughly 180 million people",
       "Estimated share of the population that regularly purchases leather handbags: 40%",
@@ -1723,10 +1723,10 @@
   },
   {
     "id": 42,
-    "title": "Size the Market Before a Friend Invests in Wireless Earbuds",
+    "title": "Size the Wireless Earbuds Market for a New Entrant",
     "category": "market sizing",
     "difficulty": "interview_ready",
-    "prompt": "A friend of yours just got the chance to buy into a small, 40-year-old consumer electronics business in Austin, Texas that sells wireless earbuds, and the current owner is retiring and wants a decision within the month. Before she puts her savings into it, she's asked for your gut check on how big the opportunity actually is. Roughly how many units of wireless earbuds do you think get sold each year across the United States, and is that even a market worth entering?",
+    "prompt": "Oxendale Inc. has operated in consumer electronics out of Austin, Texas for 40 years, employing around 1000 people, and is weighing whether the United States is worth a serious push. You're sitting across from Oxendale Inc.'s head of strategy, who leans back and says: 'Before we spend another dollar on this consumer electronics expansion into the United States, I need to know — how many units of wireless earbuds are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
       "Population of the United States: roughly 40 million people",
       "Estimated share of the population that regularly purchases wireless earbuds: 30%",
