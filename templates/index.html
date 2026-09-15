@@ -19,7 +19,7 @@
         </div>
         <div class="header-actions">
           <form action="{{ url_for('end_case') }}" method="post">
-            <button type="submit" id="finish-btn" class="finish-btn {{ '' if case_complete else 'hidden' }}" data-difficulty="{{ case.difficulty }}">Get Your Feedback</button>
+            <button type="submit" id="finish-btn" class="finish-btn {{ '' if case_complete else 'hidden' }}" data-difficulty="{{ case.difficulty }}" title="Your interviewer decides when the case wraps up, not a button.">Get Your Feedback</button>
           </form>
           <form action="{{ url_for('new_case') }}" method="post">
             <button type="submit" class="new-case-btn">New Case</button>
@@ -30,7 +30,7 @@
       <p class="case-prompt">{{ case.prompt }}</p>
     </header>
 
-    <p class="interviewer-controlled-note">Your interviewer decides when the case wraps up, not a button.</p>
+    <p class="consultant-fact" id="consultant-fact"></p>
 
     {% if error %}
       <p class="error-banner">{{ error }}</p>

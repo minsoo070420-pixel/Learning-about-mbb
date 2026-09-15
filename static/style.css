@@ -767,13 +767,14 @@ body {
   fill: #444;
 }
 
-.interviewer-controlled-note {
+.consultant-fact {
   margin: 10px 0;
-  padding-bottom: 4px;
+  padding-bottom: 10px;
   font-size: 12.5px;
   font-style: italic;
   color: #888;
   border-bottom: 1px solid #e0e1e6;
+  min-height: 1.2em;
 }
 
 /* questions.html */

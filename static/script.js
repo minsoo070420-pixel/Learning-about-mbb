@@ -7,6 +7,27 @@ const hintBtn = document.getElementById("hint-btn");
 const micBtn = document.getElementById("mic-btn");
 const listeningIndicator = document.getElementById("listening-indicator");
 
+const CONSULTANT_FACTS = [
+  "McKinsey & Company was founded in 1926 by University of Chicago accounting professor James O. McKinsey.",
+  "Bain & Company was founded in 1973 by Bill Bain and a group of former BCG consultants.",
+  "The BCG Growth-Share Matrix — Stars, Cash Cows, Question Marks, and Dogs — was introduced by BCG founder Bruce Henderson in 1970.",
+  "Net Promoter Score, now one of the world's most-used customer loyalty metrics, was created at Bain & Company in 2003.",
+  "\"MECE\" (Mutually Exclusive, Collectively Exhaustive) and the Pyramid Principle were both developed by Barbara Minto, a former McKinsey consultant.",
+  "McKinsey, BCG, and Bain are collectively nicknamed \"MBB\" — the most selective tier of strategy consulting.",
+  "For decades, the classic MBB schedule was \"fly out Monday, fly home Thursday\" — consultants often spent more nights in hotels than at home.",
+  "Case interviews were pioneered by McKinsey to test real-time structured thinking, not to see if you already knew the \"right\" answer.",
+  "Junior consultants are typically \"staffed\" on a brand-new project every few months — often in an industry they've never touched before.",
+  "Many strategy firms use an \"up or out\" model: consultants are expected to reach the next rank within a set number of years or move on.",
+  "The 80/20 rule, a staple of consulting frameworks, is named after 19th-century Italian economist Vilfredo Pareto.",
+  "A \"deck\" is just consulting slang for a slide presentation — some go through dozens of internal revisions before a client ever sees one.",
+  "Consulting alumni networks are famously deep: McKinsey, BCG, and Bain alumni have gone on to run Fortune 500 companies, central banks, and governments.",
+  "The average case interview runs 20-40 minutes, and final rounds often stack two or three cases back to back.",
+  "Most top firms publish free case-interview prep materials, partly to level the playing field for candidates outside elite \"target schools.\"",
+  "\"Answer first\" — leading with the recommendation before the supporting logic — is often called the single most-drilled habit in consulting communication.",
+  "Some consultants spend their first weeks on a new project just building an \"issue tree\" before ever touching a spreadsheet.",
+  "The term \"trusted advisor\" — an outsider a CEO calls before making a big bet — dates back to consulting's earliest days in the 1920s and 30s.",
+];
+
 function addBubble(text, role) {
   const empty = chatLog.querySelector(".chat-empty");
   if (empty) empty.remove();
@@ -235,3 +256,9 @@ chatInput.addEventListener("keydown", (e) => {
 });
 
 chatLog.scrollTop = chatLog.scrollHeight;
+
+const consultantFactEl = document.getElementById("consultant-fact");
+if (consultantFactEl) {
+  const fact = CONSULTANT_FACTS[Math.floor(Math.random() * CONSULTANT_FACTS.length)];
+  consultantFactEl.textContent = `💼 ${fact}`;
+}
