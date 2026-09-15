@@ -9026,7 +9026,7 @@
     "key_data": [
       "Current price per membership: $10, versus competitor average of $100",
       "Estimated price elasticity: a 20% price change shifts volume by roughly 8%",
-      "Variable cost per membership: $15",
+      "Variable cost per membership: $6.9",
       "Customer surveys suggest 15% of customers would tolerate a modest price increase",
       "Premium segment customers represent 15% of volume but 40% of profit",
       "That elasticity is a blend: the premium segment (15% of volume, 40% of profit) is far less price-sensitive — the same size price change shifts their volume by only about 3.2%, versus 10.4% for the rest of the base.",
@@ -9216,7 +9216,7 @@
     "key_data": [
       "Current price per vehicle: $25, versus competitor average of $180",
       "Estimated price elasticity: a 2% price change shifts volume by roughly 40%",
-      "Variable cost per vehicle: $60",
+      "Variable cost per vehicle: $16.25",
       "Customer surveys suggest 22% of customers would tolerate a modest price increase",
       "Premium segment customers represent 30% of volume but 42% of profit",
       "That elasticity is a blend: the premium segment (30% of volume, 42% of profit) is far less price-sensitive — the same size price change shifts their volume by only about 16.0%, versus 52.0% for the rest of the base.",
@@ -9406,7 +9406,7 @@
     "key_data": [
       "Current price per package: $10, versus competitor average of $55",
       "Estimated price elasticity: a 12% price change shifts volume by roughly 40%",
-      "Variable cost per package: $60",
+      "Variable cost per package: $5.9",
       "Customer surveys suggest 20% of customers would tolerate a modest price increase",
       "Premium segment customers represent 40% of volume but 40% of profit",
       "That elasticity is a blend: the premium segment (40% of volume, 40% of profit) is far less price-sensitive — the same size price change shifts their volume by only about 16.0%, versus 52.0% for the rest of the base.",
@@ -9634,7 +9634,7 @@
     "key_data": [
       "Current price per unit: $25, versus competitor average of $55",
       "Estimated price elasticity: a 5% price change shifts volume by roughly 15%",
-      "Variable cost per unit: $30",
+      "Variable cost per unit: $18.5",
       "Customer surveys suggest 28% of customers would tolerate a modest price increase",
       "Premium segment customers represent 15% of volume but 48% of profit",
       "That elasticity is a blend: the premium segment (15% of volume, 48% of profit) is far less price-sensitive — the same size price change shifts their volume by only about 6.0%, versus 19.5% for the rest of the base.",
@@ -10052,7 +10052,7 @@
     "key_data": [
       "Current price per passenger: $10, versus competitor average of $180",
       "Estimated price elasticity: a 2% price change shifts volume by roughly 35%",
-      "Variable cost per passenger: $60",
+      "Variable cost per passenger: $6.5",
       "Customer surveys suggest 15% of customers would tolerate a modest price increase",
       "Premium segment customers represent 35% of volume but 50% of profit",
       "That elasticity is a blend: the premium segment (35% of volume, 50% of profit) is far less price-sensitive — the same size price change shifts their volume by only about 14.0%, versus 45.5% for the rest of the base.",
@@ -10128,7 +10128,7 @@
     "key_data": [
       "Current price per unit: $10, versus competitor average of $30",
       "Estimated price elasticity: a 7% price change shifts volume by roughly 22%",
-      "Variable cost per unit: $15",
+      "Variable cost per unit: $5.8",
       "Customer surveys suggest 15% of customers would tolerate a modest price increase",
       "Premium segment customers represent 15% of volume but 38% of profit",
       "That elasticity is a blend: the premium segment (15% of volume, 38% of profit) is far less price-sensitive — the same size price change shifts their volume by only about 8.8%, versus 28.6% for the rest of the base.",
@@ -10166,7 +10166,7 @@
     "key_data": [
       "Current price per package: $25, versus competitor average of $30",
       "Estimated price elasticity: a 9% price change shifts volume by roughly 25%",
-      "Variable cost per package: $30",
+      "Variable cost per package: $17.5",
       "Customer surveys suggest 15% of customers would tolerate a modest price increase",
       "Premium segment customers represent 18% of volume but 40% of profit",
       "That elasticity is a blend: the premium segment (18% of volume, 40% of profit) is far less price-sensitive — the same size price change shifts their volume by only about 10.0%, versus 32.5% for the rest of the base.",
@@ -10204,7 +10204,7 @@
     "key_data": [
       "Current price per rack: $10, versus competitor average of $55",
       "Estimated price elasticity: a 10% price change shifts volume by roughly 25%",
-      "Variable cost per rack: $30",
+      "Variable cost per rack: $6.1",
       "Customer surveys suggest 10% of customers would tolerate a modest price increase",
       "Premium segment customers represent 30% of volume but 25% of profit",
       "That elasticity is a blend: the premium segment (30% of volume, 25% of profit) is far less price-sensitive — the same size price change shifts their volume by only about 10.0%, versus 32.5% for the rest of the base.",
@@ -10280,7 +10280,7 @@
     "key_data": [
       "Current price per subscriber: $10, versus competitor average of $100",
       "Estimated price elasticity: a 5% price change shifts volume by roughly 5%",
-      "Variable cost per subscriber: $30",
+      "Variable cost per subscriber: $6.5",
       "Customer surveys suggest 40% of customers would tolerate a modest price increase",
       "Premium segment customers represent 35% of volume but 40% of profit",
       "That elasticity is a blend: the premium segment (35% of volume, 40% of profit) is far less price-sensitive — the same size price change shifts their volume by only about 2.0%, versus 6.5% for the rest of the base.",
@@ -10628,7 +10628,7 @@
       "Separately, order volume at the affected facility is up 23% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 4 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $8M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 83% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $8.1M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $8.1M a year."
     ],
     "exhibit": {
       "title": "On-Time Delivery Index Over the Past 3 Years (Then = 100)",
@@ -10668,7 +10668,7 @@
       "Separately, order volume at the affected facility is up 20% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 3 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $3M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 85% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $3.9M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $3.9M a year."
     ],
     "exhibit": {
       "title": "Defect Rate Index Over the Past 5 Years (Then = 100)",
@@ -10712,7 +10712,7 @@
       "Separately, order volume at the affected facility is up 24% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 4 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $8M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 83% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $7.2M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $7.2M a year."
     ],
     "exhibit": {
       "title": "Capacity Utilization Index Over the Past 4 Years (Then = 100)",
@@ -10754,7 +10754,7 @@
       "Separately, order volume at the affected facility is up 19% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 4 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $10M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 83% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $10.6M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $10.6M a year."
     ],
     "exhibit": {
       "title": "Inventory Turns Index Over the Past 3 Years (Then = 100)",
@@ -10794,7 +10794,7 @@
       "Separately, order volume at the affected facility is up 13% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 5 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $8M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 87% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $10.8M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $10.8M a year."
     ],
     "exhibit": {
       "title": "Defect Rate Index Over the Past 2 Years (Then = 100)",
@@ -10832,7 +10832,7 @@
       "Separately, order volume at the affected facility is up 15% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 5 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $3M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 86% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $4.0M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $4.0M a year."
     ],
     "exhibit": {
       "title": "Lead Time Index Over the Past 3 Years (Then = 100)",
@@ -10872,7 +10872,7 @@
       "Separately, order volume at the affected facility is up 24% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 7 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $8M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 83% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $9.8M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $9.8M a year."
     ],
     "exhibit": {
       "title": "Lead Time Index Over the Past 2 Years (Then = 100)",
@@ -10910,7 +10910,7 @@
       "Separately, order volume at the affected facility is up 18% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 5 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $12M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 86% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $16.4M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $16.4M a year."
     ],
     "exhibit": {
       "title": "Capacity Utilization Index Over the Past 5 Years (Then = 100)",
@@ -10954,7 +10954,7 @@
       "Separately, order volume at the affected facility is up 27% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 6 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $14M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 88% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $14.7M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $14.7M a year."
     ],
     "exhibit": {
       "title": "Service Quality Index Over the Past 5 Years (Then = 100)",
@@ -10998,7 +10998,7 @@
       "Separately, order volume at the affected facility is up 23% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 3 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $4M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 82% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $3.0M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $3.0M a year."
     ],
     "exhibit": {
       "title": "On-Time Delivery Index Over the Past 5 Years (Then = 100)",
@@ -11042,7 +11042,7 @@
       "Separately, order volume at the affected facility is up 17% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 3 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $5M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 82% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $4.5M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $4.5M a year."
     ],
     "exhibit": {
       "title": "Capacity Utilization Index Over the Past 5 Years (Then = 100)",
@@ -11086,7 +11086,7 @@
       "Separately, order volume at the affected facility is up 16% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 3 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $13M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 85% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $10.0M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $10.0M a year."
     ],
     "exhibit": {
       "title": "Lead Time Index Over the Past 4 Years (Then = 100)",
@@ -11128,7 +11128,7 @@
       "Separately, order volume at the affected facility is up 24% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 6 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $14M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 88% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $18.3M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $18.3M a year."
     ],
     "exhibit": {
       "title": "Service Quality Index Over the Past 5 Years (Then = 100)",
@@ -11172,7 +11172,7 @@
       "Separately, order volume at the affected facility is up 21% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 7 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $6M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 80% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $6.9M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $6.9M a year."
     ],
     "exhibit": {
       "title": "Service Quality Index Over the Past 5 Years (Then = 100)",
@@ -11216,7 +11216,7 @@
       "Separately, order volume at the affected facility is up 26% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 6 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $12M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 84% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $8.6M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $8.6M a year."
     ],
     "exhibit": {
       "title": "Capacity Utilization Index Over the Past 5 Years (Then = 100)",
@@ -11260,7 +11260,7 @@
       "Separately, order volume at the affected facility is up 18% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 6 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $13M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 82% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $11.7M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $11.7M a year."
     ],
     "exhibit": {
       "title": "On-Time Delivery Index Over the Past 5 Years (Then = 100)",
@@ -11304,7 +11304,7 @@
       "Separately, order volume at the affected facility is up 10% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 3 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $13M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 83% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $8.8M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $8.8M a year."
     ],
     "exhibit": {
       "title": "Inventory Turns Index Over the Past 3 Years (Then = 100)",
@@ -11344,7 +11344,7 @@
       "Separately, order volume at the affected facility is up 22% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 4 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $6M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 79% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $7.1M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $7.1M a year."
     ],
     "exhibit": {
       "title": "On-Time Delivery Index Over the Past 5 Years (Then = 100)",
@@ -11388,7 +11388,7 @@
       "Separately, order volume at the affected facility is up 19% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 5 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $6M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 82% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $5.2M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $5.2M a year."
     ],
     "exhibit": {
       "title": "On-Time Delivery Index Over the Past 4 Years (Then = 100)",
@@ -11430,7 +11430,7 @@
       "Separately, order volume at the affected facility is up 14% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 5 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $12M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 79% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $13.8M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $13.8M a year."
     ],
     "exhibit": {
       "title": "Inventory Turns Index Over the Past 5 Years (Then = 100)",
@@ -11474,7 +11474,7 @@
       "Separately, order volume at the affected facility is up 25% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 7 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $8M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 82% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $6.2M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $6.2M a year."
     ],
     "exhibit": {
       "title": "Capacity Utilization Index Over the Past 4 Years (Then = 100)",
@@ -11516,7 +11516,7 @@
       "Separately, order volume at the affected facility is up 27% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 3 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $15M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 86% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $20.7M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $20.7M a year."
     ],
     "exhibit": {
       "title": "On-Time Delivery Index Over the Past 4 Years (Then = 100)",
@@ -11558,7 +11558,7 @@
       "Separately, order volume at the affected facility is up 10% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 4 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $15M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 82% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $12.0M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $12.0M a year."
     ],
     "exhibit": {
       "title": "Defect Rate Index Over the Past 3 Years (Then = 100)",
@@ -11598,7 +11598,7 @@
       "Separately, order volume at the affected facility is up 18% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 6 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $10M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 80% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $11.8M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $11.8M a year."
     ],
     "exhibit": {
       "title": "Capacity Utilization Index Over the Past 2 Years (Then = 100)",
@@ -11636,7 +11636,7 @@
       "Separately, order volume at the affected facility is up 22% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 4 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $7M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 79% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $7.4M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $7.4M a year."
     ],
     "exhibit": {
       "title": "Capacity Utilization Index Over the Past 5 Years (Then = 100)",
@@ -11680,7 +11680,7 @@
       "Separately, order volume at the affected facility is up 26% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 5 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $6M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 86% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $5.5M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $5.5M a year."
     ],
     "exhibit": {
       "title": "Defect Rate Index Over the Past 4 Years (Then = 100)",
@@ -11722,7 +11722,7 @@
       "Separately, order volume at the affected facility is up 13% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 6 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $6M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 81% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $5.3M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $5.3M a year."
     ],
     "exhibit": {
       "title": "Defect Rate Index Over the Past 5 Years (Then = 100)",
@@ -11766,7 +11766,7 @@
       "Separately, order volume at the affected facility is up 15% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 7 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $3M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 80% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $3.0M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $3.0M a year."
     ],
     "exhibit": {
       "title": "On-Time Delivery Index Over the Past 2 Years (Then = 100)",
@@ -11804,7 +11804,7 @@
       "Separately, order volume at the affected facility is up 25% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 5 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $8M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 80% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $10.1M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $10.1M a year."
     ],
     "exhibit": {
       "title": "Service Quality Index Over the Past 4 Years (Then = 100)",
@@ -11846,7 +11846,7 @@
       "Separately, order volume at the affected facility is up 15% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 4 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $12M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 86% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $13.6M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $13.6M a year."
     ],
     "exhibit": {
       "title": "Capacity Utilization Index Over the Past 2 Years (Then = 100)",
@@ -11884,7 +11884,7 @@
       "Separately, order volume at the affected facility is up 21% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 5 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $13M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 81% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $8.8M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $8.8M a year."
     ],
     "exhibit": {
       "title": "Inventory Turns Index Over the Past 4 Years (Then = 100)",
@@ -11926,7 +11926,7 @@
       "Separately, order volume at the affected facility is up 18% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 6 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $6M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 84% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $4.9M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $4.9M a year."
     ],
     "exhibit": {
       "title": "On-Time Delivery Index Over the Past 2 Years (Then = 100)",
@@ -11964,7 +11964,7 @@
       "Separately, order volume at the affected facility is up 12% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 4 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $14M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 81% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $12.6M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $12.6M a year."
     ],
     "exhibit": {
       "title": "Inventory Turns Index Over the Past 4 Years (Then = 100)",
@@ -12006,7 +12006,7 @@
       "Separately, order volume at the affected facility is up 19% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 3 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $11M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 86% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $11.1M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $11.1M a year."
     ],
     "exhibit": {
       "title": "Inventory Turns Index Over the Past 5 Years (Then = 100)",
@@ -12050,7 +12050,7 @@
       "Separately, order volume at the affected facility is up 19% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 6 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $9M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 88% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $7.4M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $7.4M a year."
     ],
     "exhibit": {
       "title": "Lead Time Index Over the Past 3 Years (Then = 100)",
@@ -12090,7 +12090,7 @@
       "Separately, order volume at the affected facility is up 13% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 4 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $14M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 83% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $14.4M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $14.4M a year."
     ],
     "exhibit": {
       "title": "Lead Time Index Over the Past 3 Years (Then = 100)",
@@ -12130,7 +12130,7 @@
       "Separately, order volume at the affected facility is up 14% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 5 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $5M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 78% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $4.3M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $4.3M a year."
     ],
     "exhibit": {
       "title": "On-Time Delivery Index Over the Past 4 Years (Then = 100)",
@@ -12172,7 +12172,7 @@
       "Separately, order volume at the affected facility is up 16% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 5 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $14M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 85% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $13.0M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $13.0M a year."
     ],
     "exhibit": {
       "title": "Lead Time Index Over the Past 5 Years (Then = 100)",
@@ -12216,7 +12216,7 @@
       "Separately, order volume at the affected facility is up 11% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 5 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $12M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 81% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $7.3M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $7.3M a year."
     ],
     "exhibit": {
       "title": "Capacity Utilization Index Over the Past 2 Years (Then = 100)",
@@ -12254,7 +12254,7 @@
       "Separately, order volume at the affected facility is up 22% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 4 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $15M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 86% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $14.2M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $14.2M a year."
     ],
     "exhibit": {
       "title": "Inventory Turns Index Over the Past 4 Years (Then = 100)",
@@ -12296,7 +12296,7 @@
       "Separately, order volume at the affected facility is up 26% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 4 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $3M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 79% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $3.9M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $3.9M a year."
     ],
     "exhibit": {
       "title": "Inventory Turns Index Over the Past 2 Years (Then = 100)",
@@ -12334,7 +12334,7 @@
       "Separately, order volume at the affected facility is up 29% over the same period — noticeably faster than capacity has grown.",
       "The facility's preventive-maintenance schedule hasn't been updated in over 4 years, and unplanned downtime has ticked up accordingly.",
       "A proposed fix — catching up on the deferred maintenance and adding capacity to absorb the demand increase — is budgeted at $10M upfront.",
-      "That fix is projected to bring utilization back down to a sustainable 81% and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $8.6M a year."
+      "That fix is projected to stabilize the facility and cut the current annual cost of the underlying problem (overtime, expedited shipping, scrap) by $8.6M a year."
     ],
     "exhibit": {
       "title": "Defect Rate Index Over the Past 3 Years (Then = 100)",
