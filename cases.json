@@ -6,7 +6,7 @@
     "difficulty": "interview_ready",
     "prompt": "Trailhead & Co. has operated in food delivery out of Chiang Mai for 20 years, operating 5 locations, and is weighing whether Thailand is worth a serious push. You're sitting across from Trailhead & Co.'s head of strategy, who leans back and says: 'Before we spend another dollar on this food delivery expansion into Thailand, I need to know — how many orders of restaurant delivery orders are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
-      "Population of Thailand: roughly 180 million people",
+      "Population of Thailand: roughly 72 million people",
       "Estimated share of the population that regularly purchases restaurant delivery orders: 12%",
       "Average purchase frequency: 3 times per year",
       "Average price per order: $25",
@@ -48,7 +48,7 @@
     "difficulty": "interview_ready",
     "prompt": "Greymark Inc. has operated in cybersecurity software out of Chiang Mai for 8 years, employing around 200 people, and is weighing whether Thailand is worth a serious push. They've engaged your team to size the annual market for enterprise endpoint protection in Thailand before deciding whether to build a cybersecurity software business there from scratch. The CEO wants a defensible number by the end of the week, backed by a clear methodology, not just a gut feel — how would you get there?",
     "key_data": [
-      "Population of Thailand: roughly 120 million people",
+      "Population of Thailand: roughly 72 million people",
       "Estimated share of the population that regularly purchases enterprise endpoint protection: 40%",
       "Average purchase frequency: 6 times per year",
       "Average price per seat: $15",
@@ -90,7 +90,7 @@
     "difficulty": "interview_ready",
     "prompt": "Sterling Partners has operated in logistics and freight out of Dubai for 30 years, generating roughly $25M in annual revenue, and is weighing whether the UAE is worth a serious push. They've engaged your team to size the annual market for last-mile parcel delivery in the UAE before deciding whether to build a logistics and freight business there from scratch. The CEO wants a defensible number by the end of the week, backed by a clear methodology, not just a gut feel — how would you get there?",
     "key_data": [
-      "Population of the UAE: roughly 120 million people",
+      "Population of the UAE: roughly 10 million people",
       "Estimated share of the population that regularly purchases last-mile parcel delivery: 22%",
       "Average purchase frequency: 3 times per year",
       "Average price per package: $8",
@@ -132,7 +132,7 @@
     "difficulty": "interview_ready",
     "prompt": "Brookfield & Co. has operated in health insurance out of Santiago for 30 years, employing around 500 people, and is weighing whether Chile is worth a serious push. They've engaged your team to size the annual market for individual health plans in Chile before deciding whether to build a health insurance business there from scratch. The CEO wants a defensible number by the end of the week, backed by a clear methodology, not just a gut feel — how would you get there?",
     "key_data": [
-      "Population of Chile: roughly 120 million people",
+      "Population of Chile: roughly 20 million people",
       "Estimated share of the population that regularly purchases individual health plans: 8%",
       "Average purchase frequency: 4 times per year",
       "Average price per policy: $60",
@@ -174,7 +174,7 @@
     "difficulty": "interview_ready",
     "prompt": "Prescott & Co. has operated in shipping and marine out of Cape Town for 12 years, operating 16 locations, and is weighing whether South Africa is worth a serious push. They've engaged your team to size the annual market for container shipping routes in South Africa before deciding whether to build a shipping and marine business there from scratch. The CEO wants a defensible number by the end of the week, backed by a clear methodology, not just a gut feel — how would you get there?",
     "key_data": [
-      "Population of South Africa: roughly 90 million people",
+      "Population of South Africa: roughly 60 million people",
       "Estimated share of the population that regularly purchases container shipping routes: 35%",
       "Average purchase frequency: 3 times per year",
       "Average price per container: $3",
@@ -216,7 +216,7 @@
     "difficulty": "interview_ready",
     "prompt": "Harborlight Group has operated in media and streaming out of Gothenburg for 20 years, generating roughly $750M in annual revenue, and is weighing whether Sweden is worth a serious push. They've engaged your team to size the annual market for video streaming subscriptions in Sweden before deciding whether to build a media and streaming business there from scratch. The CEO wants a defensible number by the end of the week, backed by a clear methodology, not just a gut feel — how would you get there?",
     "key_data": [
-      "Population of Sweden: roughly 65 million people",
+      "Population of Sweden: roughly 10 million people",
       "Estimated share of the population that regularly purchases video streaming subscriptions: 20%",
       "Average purchase frequency: 12 times per year",
       "Average price per subscriber: $60",
@@ -258,7 +258,7 @@
     "difficulty": "interview_ready",
     "prompt": "Palisade Holdings has operated in chemicals out of Gothenburg for 20 years, generating roughly $500M in annual revenue, and is weighing whether Sweden is worth a serious push. They've engaged your team to size the annual market for specialty industrial adhesives in Sweden before deciding whether to build a chemicals business there from scratch. The CEO wants a defensible number by the end of the week, backed by a clear methodology, not just a gut feel — how would you get there?",
     "key_data": [
-      "Population of Sweden: roughly 180 million people",
+      "Population of Sweden: roughly 10 million people",
       "Estimated share of the population that regularly purchases specialty industrial adhesives: 30%",
       "Average purchase frequency: 1 times per year",
       "Average price per unit: $3",
@@ -300,7 +300,7 @@
     "difficulty": "interview_ready",
     "prompt": "Novara & Co. has operated in pharmaceuticals out of Manchester for 25 years, generating roughly $400M in annual revenue, and is weighing whether the UK is worth a serious push. They've engaged your team to size the annual market for a branded cholesterol drug in the UK before deciding whether to build a pharmaceuticals business there from scratch. The CEO wants a defensible number by the end of the week, backed by a clear methodology, not just a gut feel — how would you get there?",
     "key_data": [
-      "Population of the UK: roughly 250 million people",
+      "Population of the UK: roughly 68 million people",
       "Estimated share of the population that regularly purchases a branded cholesterol drug: 28%",
       "Average purchase frequency: 6 times per year",
       "Average price per prescription: $120",
@@ -342,7 +342,7 @@
     "difficulty": "interview_ready",
     "prompt": "Brookfield Holdings has operated in private equity portfolio operations out of Busan for 40 years, operating 12 locations, and is weighing whether South Korea is worth a serious push. You're sitting across from Brookfield Holdings's head of strategy, who leans back and says: 'Before we spend another dollar on this private equity portfolio operations expansion into South Korea, I need to know — how many engagements of a mid-market services business are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
-      "Population of South Korea: roughly 65 million people",
+      "Population of South Korea: roughly 52 million people",
       "Estimated share of the population that regularly purchases a mid-market services business: 8%",
       "Average purchase frequency: 2 times per year",
       "Average price per engagement: $15",
@@ -384,7 +384,7 @@
     "difficulty": "interview_ready",
     "prompt": "Vantage Group has operated in industrial manufacturing out of Lyon for 25 years, employing around 2,500 people, and is weighing whether France is worth a serious push. You're sitting across from Vantage Group's head of strategy, who leans back and says: 'Before we spend another dollar on this industrial manufacturing expansion into France, I need to know — how many units of precision ball bearings are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
-      "Population of France: roughly 40 million people",
+      "Population of France: roughly 68 million people",
       "Estimated share of the population that regularly purchases precision ball bearings: 12%",
       "Average purchase frequency: 3 times per year",
       "Average price per unit: $60",
@@ -426,7 +426,7 @@
     "difficulty": "interview_ready",
     "prompt": "Hollowell & Co. has operated in beauty and personal care out of Osaka for 15 years, operating 21 locations, and is weighing whether Japan is worth a serious push. They've engaged your team to size the annual market for premium skincare in Japan before deciding whether to build a beauty and personal care business there from scratch. The CEO wants a defensible number by the end of the week, backed by a clear methodology, not just a gut feel — how would you get there?",
     "key_data": [
-      "Population of Japan: roughly 180 million people",
+      "Population of Japan: roughly 124 million people",
       "Estimated share of the population that regularly purchases premium skincare: 40%",
       "Average purchase frequency: 3 times per year",
       "Average price per unit: $8",
@@ -468,7 +468,7 @@
     "difficulty": "interview_ready",
     "prompt": "Everest Holdings has operated in commercial banking out of Perth for 8 years, employing around 5,000 people, and is weighing whether Australia is worth a serious push. You're sitting across from Everest Holdings's head of strategy, who leans back and says: 'Before we spend another dollar on this commercial banking expansion into Australia, I need to know — how many loans of small-business loans are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
-      "Population of Australia: roughly 120 million people",
+      "Population of Australia: roughly 26 million people",
       "Estimated share of the population that regularly purchases small-business loans: 30%",
       "Average purchase frequency: 6 times per year",
       "Average price per loan: $3",
@@ -510,7 +510,7 @@
     "difficulty": "interview_ready",
     "prompt": "Brookfield & Co. has operated in education technology out of Vancouver for 20 years, generating roughly $500M in annual revenue, and is weighing whether Canada is worth a serious push. You're sitting across from Brookfield & Co.'s head of strategy, who leans back and says: 'Before we spend another dollar on this education technology expansion into Canada, I need to know — how many enrollments of online test-prep courses are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
-      "Population of Canada: roughly 65 million people",
+      "Population of Canada: roughly 39 million people",
       "Estimated share of the population that regularly purchases online test-prep courses: 25%",
       "Average purchase frequency: 1 times per year",
       "Average price per enrollment: $8",
@@ -552,7 +552,7 @@
     "difficulty": "interview_ready",
     "prompt": "Larkspur Inc. has operated in hotel and hospitality out of Rotterdam for 8 years, generating roughly $555M in annual revenue, and is weighing whether the Netherlands is worth a serious push. You're sitting across from Larkspur Inc.'s head of strategy, who leans back and says: 'Before we spend another dollar on this hotel and hospitality expansion into the Netherlands, I need to know — how many room-nights of midscale hotel rooms are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
-      "Population of the Netherlands: roughly 250 million people",
+      "Population of the Netherlands: roughly 18 million people",
       "Estimated share of the population that regularly purchases midscale hotel rooms: 30%",
       "Average purchase frequency: 12 times per year",
       "Average price per room-night: $120",
@@ -594,7 +594,7 @@
     "difficulty": "interview_ready",
     "prompt": "Oxendale Group has operated in media and streaming out of Guadalajara for 20 years, generating roughly $173M in annual revenue, and is weighing whether Mexico is worth a serious push. They've engaged your team to size the annual market for video streaming subscriptions in Mexico before deciding whether to build a media and streaming business there from scratch. The CEO wants a defensible number by the end of the week, backed by a clear methodology, not just a gut feel — how would you get there?",
     "key_data": [
-      "Population of Mexico: roughly 180 million people",
+      "Population of Mexico: roughly 128 million people",
       "Estimated share of the population that regularly purchases video streaming subscriptions: 18%",
       "Average purchase frequency: 12 times per year",
       "Average price per subscriber: $25",
@@ -636,7 +636,7 @@
     "difficulty": "interview_ready",
     "prompt": "Ironbark Ventures has operated in semiconductor manufacturing out of Manchester for 30 years, employing around 5000 people, and is weighing whether the UK is worth a serious push. You're sitting across from Ironbark Ventures's head of strategy, who leans back and says: 'Before we spend another dollar on this semiconductor manufacturing expansion into the UK, I need to know — how many chips of analog microchips are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
-      "Population of the UK: roughly 330 million people",
+      "Population of the UK: roughly 68 million people",
       "Estimated share of the population that regularly purchases analog microchips: 5%",
       "Average purchase frequency: 1 times per year",
       "Average price per chip: $25",
@@ -678,7 +678,7 @@
     "difficulty": "interview_ready",
     "prompt": "Timberline has operated in semiconductor manufacturing out of Perth for 12 years, operating 3 locations, and is weighing whether Australia is worth a serious push. You're sitting across from Timberline's head of strategy, who leans back and says: 'Before we spend another dollar on this semiconductor manufacturing expansion into Australia, I need to know — how many chips of analog microchips are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
-      "Population of Australia: roughly 40 million people",
+      "Population of Australia: roughly 26 million people",
       "Estimated share of the population that regularly purchases analog microchips: 35%",
       "Average purchase frequency: 3 times per year",
       "Average price per chip: $40",
@@ -720,7 +720,7 @@
     "difficulty": "interview_ready",
     "prompt": "Sable Inc. has operated in waste management out of Rotterdam for 25 years, operating 3 locations, and is weighing whether the Netherlands is worth a serious push. They've engaged your team to size the annual market for commercial waste collection in the Netherlands before deciding whether to build a waste management business there from scratch. The CEO wants a defensible number by the end of the week, backed by a clear methodology, not just a gut feel — how would you get there?",
     "key_data": [
-      "Population of the Netherlands: roughly 65 million people",
+      "Population of the Netherlands: roughly 18 million people",
       "Estimated share of the population that regularly purchases commercial waste collection: 22%",
       "Average purchase frequency: 12 times per year",
       "Average price per contract: $25",
@@ -762,7 +762,7 @@
     "difficulty": "interview_ready",
     "prompt": "Aurora has operated in e-commerce out of Curitiba for 40 years, generating roughly $200M in annual revenue, and is weighing whether Brazil is worth a serious push. You're sitting across from Aurora's head of strategy, who leans back and says: 'Before we spend another dollar on this e-commerce expansion into Brazil, I need to know — how many orders of online apparel are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
-      "Population of Brazil: roughly 65 million people",
+      "Population of Brazil: roughly 216 million people",
       "Estimated share of the population that regularly purchases online apparel: 5%",
       "Average purchase frequency: 2 times per year",
       "Average price per order: $40",
@@ -804,7 +804,7 @@
     "difficulty": "interview_ready",
     "prompt": "Ravensdale Holdings has operated in data centers out of Milan for 25 years, employing around 1000 people, and is weighing whether Italy is worth a serious push. You're sitting across from Ravensdale Holdings's head of strategy, who leans back and says: 'Before we spend another dollar on this data centers expansion into Italy, I need to know — how many racks of colocation server space are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
-      "Population of Italy: roughly 65 million people",
+      "Population of Italy: roughly 59 million people",
       "Estimated share of the population that regularly purchases colocation server space: 28%",
       "Average purchase frequency: 12 times per year",
       "Average price per rack: $25",
@@ -846,7 +846,7 @@
     "difficulty": "interview_ready",
     "prompt": "BluePeak Group has operated in telecommunications out of Rotterdam for 20 years, operating 20 locations, and is weighing whether the Netherlands is worth a serious push. You're sitting across from BluePeak Group's head of strategy, who leans back and says: 'Before we spend another dollar on this telecommunications expansion into the Netherlands, I need to know — how many subscribers of prepaid mobile plans are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
-      "Population of the Netherlands: roughly 180 million people",
+      "Population of the Netherlands: roughly 18 million people",
       "Estimated share of the population that regularly purchases prepaid mobile plans: 8%",
       "Average purchase frequency: 3 times per year",
       "Average price per subscriber: $25",
@@ -888,7 +888,7 @@
     "difficulty": "interview_ready",
     "prompt": "Ravensdale Group has operated in telecommunications out of Manchester for 30 years, operating 7 locations, and is weighing whether the UK is worth a serious push. You're sitting across from Ravensdale Group's head of strategy, who leans back and says: 'Before we spend another dollar on this telecommunications expansion into the UK, I need to know — how many subscribers of prepaid mobile plans are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
-      "Population of the UK: roughly 90 million people",
+      "Population of the UK: roughly 68 million people",
       "Estimated share of the population that regularly purchases prepaid mobile plans: 12%",
       "Average purchase frequency: 2 times per year",
       "Average price per subscriber: $60",
@@ -930,7 +930,7 @@
     "difficulty": "interview_ready",
     "prompt": "Elmwood Holdings has operated in consumer packaged goods out of Ho Chi Minh City for 40 years, operating 8 locations, and is weighing whether Vietnam is worth a serious push. You're sitting across from Elmwood Holdings's head of strategy, who leans back and says: 'Before we spend another dollar on this consumer packaged goods expansion into Vietnam, I need to know — how many cases of bottled sparkling water are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
-      "Population of Vietnam: roughly 250 million people",
+      "Population of Vietnam: roughly 98 million people",
       "Estimated share of the population that regularly purchases bottled sparkling water: 5%",
       "Average purchase frequency: 2 times per year",
       "Average price per case: $15",
@@ -972,7 +972,7 @@
     "difficulty": "interview_ready",
     "prompt": "Ashfield Inc. has operated in consumer packaged goods out of Guadalajara for 12 years, generating roughly $774M in annual revenue, and is weighing whether Mexico is worth a serious push. You're sitting across from Ashfield Inc.'s head of strategy, who leans back and says: 'Before we spend another dollar on this consumer packaged goods expansion into Mexico, I need to know — how many cases of bottled sparkling water are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
-      "Population of Mexico: roughly 120 million people",
+      "Population of Mexico: roughly 128 million people",
       "Estimated share of the population that regularly purchases bottled sparkling water: 22%",
       "Average purchase frequency: 4 times per year",
       "Average price per case: $8",
@@ -1014,7 +1014,7 @@
     "difficulty": "interview_ready",
     "prompt": "Millbrook Group has operated in gaming out of Austin, Texas for 15 years, operating 14 locations, and is weighing whether the United States is worth a serious push. You're sitting across from Millbrook Group's head of strategy, who leans back and says: 'Before we spend another dollar on this gaming expansion into the United States, I need to know — how many players of mobile free-to-play games are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
-      "Population of the United States: roughly 90 million people",
+      "Population of the United States: roughly 335 million people",
       "Estimated share of the population that regularly purchases mobile free-to-play games: 5%",
       "Average purchase frequency: 4 times per year",
       "Average price per player: $8",
@@ -1056,7 +1056,7 @@
     "difficulty": "interview_ready",
     "prompt": "Tidewater has operated in media and streaming out of Gothenburg for 15 years, employing around 200 people, and is weighing whether Sweden is worth a serious push. You're sitting across from Tidewater's head of strategy, who leans back and says: 'Before we spend another dollar on this media and streaming expansion into Sweden, I need to know — how many subscribers of video streaming subscriptions are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
-      "Population of Sweden: roughly 120 million people",
+      "Population of Sweden: roughly 10 million people",
       "Estimated share of the population that regularly purchases video streaming subscriptions: 30%",
       "Average purchase frequency: 3 times per year",
       "Average price per subscriber: $3",
@@ -1098,7 +1098,7 @@
     "difficulty": "interview_ready",
     "prompt": "Ashgrove Global has operated in apparel retail out of Austin, Texas for 40 years, generating roughly $100M in annual revenue, and is weighing whether the United States is worth a serious push. They've engaged your team to size the annual market for athletic footwear in the United States before deciding whether to build a apparel retail business there from scratch. The CEO wants a defensible number by the end of the week, backed by a clear methodology, not just a gut feel — how would you get there?",
     "key_data": [
-      "Population of the United States: roughly 40 million people",
+      "Population of the United States: roughly 335 million people",
       "Estimated share of the population that regularly purchases athletic footwear: 12%",
       "Average purchase frequency: 1 times per year",
       "Average price per pair: $25",
@@ -1140,7 +1140,7 @@
     "difficulty": "interview_ready",
     "prompt": "Nexus Inc. has operated in telecommunications out of Dubai for 30 years, operating 12 locations, and is weighing whether the UAE is worth a serious push. They've engaged your team to size the annual market for prepaid mobile plans in the UAE before deciding whether to build a telecommunications business there from scratch. The CEO wants a defensible number by the end of the week, backed by a clear methodology, not just a gut feel — how would you get there?",
     "key_data": [
-      "Population of the UAE: roughly 90 million people",
+      "Population of the UAE: roughly 10 million people",
       "Estimated share of the population that regularly purchases prepaid mobile plans: 18%",
       "Average purchase frequency: 12 times per year",
       "Average price per subscriber: $8",
@@ -1182,7 +1182,7 @@
     "difficulty": "interview_ready",
     "prompt": "Granite Industries has operated in data centers out of Santiago for 12 years, operating 12 locations, and is weighing whether Chile is worth a serious push. You're sitting across from Granite Industries's head of strategy, who leans back and says: 'Before we spend another dollar on this data centers expansion into Chile, I need to know — how many racks of colocation server space are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
-      "Population of Chile: roughly 90 million people",
+      "Population of Chile: roughly 20 million people",
       "Estimated share of the population that regularly purchases colocation server space: 12%",
       "Average purchase frequency: 4 times per year",
       "Average price per rack: $120",
@@ -1224,7 +1224,7 @@
     "difficulty": "interview_ready",
     "prompt": "Summit Ventures has operated in wealth management out of Manchester for 8 years, generating roughly $750M in annual revenue, and is weighing whether the UK is worth a serious push. You're sitting across from Summit Ventures's head of strategy, who leans back and says: 'Before we spend another dollar on this wealth management expansion into the UK, I need to know — how many accounts of advisory accounts are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
-      "Population of the UK: roughly 250 million people",
+      "Population of the UK: roughly 68 million people",
       "Estimated share of the population that regularly purchases advisory accounts: 22%",
       "Average purchase frequency: 3 times per year",
       "Average price per account: $25",
@@ -1266,7 +1266,7 @@
     "difficulty": "interview_ready",
     "prompt": "Hollowell & Co. has operated in pharmaceuticals out of Lyon for 40 years, generating roughly $187M in annual revenue, and is weighing whether France is worth a serious push. They've engaged your team to size the annual market for a branded cholesterol drug in France before deciding whether to build a pharmaceuticals business there from scratch. The CEO wants a defensible number by the end of the week, backed by a clear methodology, not just a gut feel — how would you get there?",
     "key_data": [
-      "Population of France: roughly 250 million people",
+      "Population of France: roughly 68 million people",
       "Estimated share of the population that regularly purchases a branded cholesterol drug: 22%",
       "Average purchase frequency: 3 times per year",
       "Average price per prescription: $120",
@@ -1308,7 +1308,7 @@
     "difficulty": "interview_ready",
     "prompt": "Fairview Inc. has operated in construction materials out of Lyon for 25 years, operating 20 locations, and is weighing whether France is worth a serious push. You're sitting across from Fairview Inc.'s head of strategy, who leans back and says: 'Before we spend another dollar on this construction materials expansion into France, I need to know — how many cubic yards of ready-mix concrete are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
-      "Population of France: roughly 330 million people",
+      "Population of France: roughly 68 million people",
       "Estimated share of the population that regularly purchases ready-mix concrete: 20%",
       "Average purchase frequency: 12 times per year",
       "Average price per cubic yard: $25",
@@ -1350,7 +1350,7 @@
     "difficulty": "interview_ready",
     "prompt": "Carrow Inc. has operated in apparel retail out of Manchester for 8 years, employing around 200 people, and is weighing whether the UK is worth a serious push. They've engaged your team to size the annual market for athletic footwear in the UK before deciding whether to build an apparel retail business there from scratch. The CEO wants a defensible number by the end of the week, backed by a clear methodology, not just a gut feel — how would you get there?",
     "key_data": [
-      "Population of the UK: roughly 180 million people",
+      "Population of the UK: roughly 68 million people",
       "Estimated share of the population that regularly purchases athletic footwear: 10%",
       "Average purchase frequency: 6 times per year",
       "Average price per pair: $60",
@@ -1392,7 +1392,7 @@
     "difficulty": "interview_ready",
     "prompt": "Summit Holdings has operated in dairy and food production out of Dubai for 15 years, employing around 500 people, and is weighing whether the UAE is worth a serious push. You're sitting across from Summit Holdings's head of strategy, who leans back and says: 'Before we spend another dollar on this dairy and food production expansion into the UAE, I need to know — how many units of artisanal cheese are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
-      "Population of the UAE: roughly 250 million people",
+      "Population of the UAE: roughly 10 million people",
       "Estimated share of the population that regularly purchases artisanal cheese: 5%",
       "Average purchase frequency: 1 times per year",
       "Average price per unit: $15",
@@ -1434,7 +1434,7 @@
     "difficulty": "interview_ready",
     "prompt": "Lumen Partners has operated in quick-service restaurants out of Busan for 30 years, employing around 500 people, and is weighing whether South Korea is worth a serious push. You're sitting across from Lumen Partners's head of strategy, who leans back and says: 'Before we spend another dollar on this quick-service restaurants expansion into South Korea, I need to know — how many orders of combo meals are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
-      "Population of South Korea: roughly 250 million people",
+      "Population of South Korea: roughly 52 million people",
       "Estimated share of the population that regularly purchases combo meals: 12%",
       "Average purchase frequency: 3 times per year",
       "Average price per order: $8",
@@ -1476,7 +1476,7 @@
     "difficulty": "interview_ready",
     "prompt": "Redstone Inc. has operated in ride-hailing out of Chiang Mai for 8 years, employing around 200 people, and is weighing whether Thailand is worth a serious push. You're sitting across from Redstone Inc.'s head of strategy, who leans back and says: 'Before we spend another dollar on this ride-hailing expansion into Thailand, I need to know — how many trips of urban ride-hailing trips are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
-      "Population of Thailand: roughly 90 million people",
+      "Population of Thailand: roughly 72 million people",
       "Estimated share of the population that regularly purchases urban ride-hailing trips: 10%",
       "Average purchase frequency: 6 times per year",
       "Average price per trip: $8",
@@ -1518,7 +1518,7 @@
     "difficulty": "interview_ready",
     "prompt": "Cardinal Industries has operated in insurance (P&C) out of Santiago for 8 years, employing around 5,000 people, and is weighing whether Chile is worth a serious push. You're sitting across from Cardinal Industries's head of strategy, who leans back and says: 'Before we spend another dollar on this insurance (P&C) expansion into Chile, I need to know — how many policys of auto insurance policies are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
-      "Population of Chile: roughly 40 million people",
+      "Population of Chile: roughly 20 million people",
       "Estimated share of the population that regularly purchases auto insurance policies: 30%",
       "Average purchase frequency: 2 times per year",
       "Average price per policy: $8",
@@ -1560,7 +1560,7 @@
     "difficulty": "interview_ready",
     "prompt": "Atlas Holdings has operated in pharmacy retail out of Krakow for 8 years, operating 20 locations, and is weighing whether Poland is worth a serious push. They've engaged your team to size the annual market for over-the-counter allergy medication in Poland before deciding whether to build a pharmacy retail business there from scratch. The CEO wants a defensible number by the end of the week, backed by a clear methodology, not just a gut feel — how would you get there?",
     "key_data": [
-      "Population of Poland: roughly 65 million people",
+      "Population of Poland: roughly 37 million people",
       "Estimated share of the population that regularly purchases over-the-counter allergy medication: 40%",
       "Average purchase frequency: 12 times per year",
       "Average price per unit: $120",
@@ -1602,7 +1602,7 @@
     "difficulty": "interview_ready",
     "prompt": "Brightline & Co. has operated in agriculture out of Krakow for 8 years, employing around 1,000 people, and is weighing whether Poland is worth a serious push. You're sitting across from Brightline & Co.'s head of strategy, who leans back and says: 'Before we spend another dollar on this agriculture expansion into Poland, I need to know — how many bags of packaged coffee are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
-      "Population of Poland: roughly 250 million people",
+      "Population of Poland: roughly 37 million people",
       "Estimated share of the population that regularly purchases packaged coffee: 5%",
       "Average purchase frequency: 12 times per year",
       "Average price per bag: $60",
@@ -1644,7 +1644,7 @@
     "difficulty": "interview_ready",
     "prompt": "Kellstone Inc. has operated in fitness and wellness out of Guadalajara for 12 years, generating roughly $757M in annual revenue, and is weighing whether Mexico is worth a serious push. They've engaged your team to size the annual market for boutique gym memberships in Mexico before deciding whether to build a fitness and wellness business there from scratch. The CEO wants a defensible number by the end of the week, backed by a clear methodology, not just a gut feel — how would you get there?",
     "key_data": [
-      "Population of Mexico: roughly 180 million people",
+      "Population of Mexico: roughly 128 million people",
       "Estimated share of the population that regularly purchases boutique gym memberships: 15%",
       "Average purchase frequency: 3 times per year",
       "Average price per membership: $120",
@@ -1686,7 +1686,7 @@
     "difficulty": "interview_ready",
     "prompt": "Prescott Ventures has operated in luxury goods out of Krakow for 15 years, operating 3 locations, and is weighing whether Poland is worth a serious push. They've engaged your team to size the annual market for leather handbags in Poland before deciding whether to build a luxury goods business there from scratch. The CEO wants a defensible number by the end of the week, backed by a clear methodology, not just a gut feel — how would you get there?",
     "key_data": [
-      "Population of Poland: roughly 180 million people",
+      "Population of Poland: roughly 37 million people",
       "Estimated share of the population that regularly purchases leather handbags: 40%",
       "Average purchase frequency: 2 times per year",
       "Average price per unit: $25",
@@ -1728,7 +1728,7 @@
     "difficulty": "interview_ready",
     "prompt": "Oxendale Inc. has operated in consumer electronics out of Austin, Texas for 40 years, employing around 1000 people, and is weighing whether the United States is worth a serious push. You're sitting across from Oxendale Inc.'s head of strategy, who leans back and says: 'Before we spend another dollar on this consumer electronics expansion into the United States, I need to know — how many units of wireless earbuds are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
-      "Population of the United States: roughly 40 million people",
+      "Population of the United States: roughly 335 million people",
       "Estimated share of the population that regularly purchases wireless earbuds: 30%",
       "Average purchase frequency: 3 times per year",
       "Average price per unit: $3",
@@ -1770,7 +1770,7 @@
     "difficulty": "interview_ready",
     "prompt": "Lumen Holdings has operated in fitness and wellness out of Ho Chi Minh City for 15 years, generating roughly $60M in annual revenue, and is weighing whether Vietnam is worth a serious push. You're sitting across from Lumen Holdings's head of strategy, who leans back and says: 'Before we spend another dollar on this fitness and wellness expansion into Vietnam, I need to know — how many memberships of boutique gym memberships are actually sold out there every year, and how fast is that growing?' Walk her through how you'd size it.",
     "key_data": [
-      "Population of Vietnam: roughly 250 million people",
+      "Population of Vietnam: roughly 98 million people",
       "Estimated share of the population that regularly purchases boutique gym memberships: 5%",
       "Average purchase frequency: 6 times per year",
       "Average price per membership: $3",
