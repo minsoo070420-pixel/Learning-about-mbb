@@ -146,7 +146,31 @@ what should the client actually do about that?" — rather than jumping straight
 your recommendation." If the candidate has landed on a genuine insight but hasn't been invited to brainstorm \
 options yet, offer that invitation explicitly before asking for a recommendation. If they skip straight to a \
 recommendation anyway, follow the rule above: don't block them, but press on what options they considered \
-and discarded along the way.\
+and discarded along the way.
+
+When the candidate first presents their framework, ask them to justify at least one branch of it — "why \
+those three buckets specifically?" — rather than just accepting the structure and moving on. A candidate who \
+can explain the logic behind their own framework is showing something real; one who can only recite it is not.
+
+Push the candidate to state an explicit, specific hypothesis early ("my working view is X") rather than a \
+vague one ("this seems promising"), and to keep it visibly alive as evidence comes in. After a piece of \
+analysis meaningfully shifts the picture — a number that undercuts their thesis, a chart that changes the \
+read — ask directly whether it changes their view: "does that shift your hypothesis?" A candidate who runs \
+several analyses without ever revisiting their original view, positively or negatively, is missing a real \
+part of the skill — name that gap rather than letting it pass.
+
+If the case centers on whether a specific, ambitious numeric target is achievable (a multiple, a growth \
+rate, a profit goal), a standout candidate bounds the answer from both directions rather than running one \
+straight-line projection: holding one lever fixed and solving for what the other would need to be, then \
+flipping which lever is fixed, to see where a realistic outcome actually sits between the two extremes. If \
+the candidate lands on a single-path answer and stops, ask them directly what the number would need to look \
+like under a different set of assumptions — don't just accept the first path they calculated as the whole \
+answer.
+
+When the candidate identifies multiple levers to close a gap (e.g. gaining share and improving margin), \
+don't let them treat those levers as simply additive without comment — press on whether pursuing one \
+actually works against the other (growth investment usually pressures margin, cost discipline usually \
+pressures growth) and how they'd resolve that tension, rather than presenting both levers as costless wins.\
 """
 
 CASE_FLOW_INTERVIEWER_DRIVEN_BEGINNER = """\
@@ -417,7 +441,10 @@ _BUSINESS_JUDGMENT_BAR = {
         "When asked to brainstorm options, three ideas is on the low end and four should be treated as a bare "
         "minimum — a strong answer produces something closer to 7-8, grouped under a quick spoken structure "
         "rather than a flat list. Score down a brainstorm that stalls at two or three ideas with no push "
-        "needed to get there."
+        "needed to get there. Separately: when the candidate names multiple levers to close a gap (growth and "
+        "cost, share and margin), credit them for explicitly reconciling the tension between those levers "
+        "rather than presenting them as simply additive — treating two competing levers as costless wins in "
+        "the same breath is exactly the kind of generic, unexamined move this category should catch."
     ),
 }
 
@@ -454,7 +481,55 @@ _SYNTHESIS_BAR = {
         "but shortchange reasoning, risks, or next steps down to a single throwaway line each — that's still "
         "incomplete even when the core recommendation is sound. Score down for a recommendation that's "
         "missing any of the four parts, or that only gives a single thin point where 2-3 are expected, or "
-        "that stays vague, hedged, or unresolved."
+        "that stays vague, hedged, or unresolved. The strongest next steps tie directly back to a specific "
+        "open question or data gap that actually came up earlier in this conversation (a number they never "
+        "got, an assumption they flagged as untested) rather than generic follow-on research — credit that "
+        "callback specifically, and note when next steps are generic instead."
+    ),
+}
+
+
+_QUANT_BAR = {
+    "beginner": (
+        "Landing the right number is the goal at this level — did they set up the calculation cleanly and get "
+        "there? Contextualizing it afterward is a nice bonus, not an expectation yet."
+    ),
+    "intermediate": (
+        "Landing the right number cleanly is the core expectation. Noting one caveat or a factor the "
+        "calculation left out afterward is a real plus, but don't expect it every time."
+    ),
+    "interview_ready": (
+        "Landing the right number is only the baseline expectation — a standout answer also contextualizes it "
+        "afterward: naming a risk or caveat behind the assumptions it rests on, or flagging a real factor the "
+        "calculation left out (an investment cost, a timing effect, a second-order consequence). Note when a "
+        "candidate does this versus when they stop the moment the arithmetic is done. When the case asks "
+        "whether an ambitious numeric target is achievable, the strongest candidates bound the answer from "
+        "both directions — solving for what one lever would need to be if the other stays fixed, then "
+        "flipping which lever is fixed — rather than running a single straight-line projection and stopping "
+        "there. Credit that two-way framing specifically when you see it, and note its absence when a "
+        "candidate only ever runs the calculation one way."
+    ),
+}
+
+_HYPOTHESIS_BAR = {
+    "beginner": (
+        "Did they form some kind of working idea before diving into analysis, even a simple one, rather than "
+        "wandering without direction? A rough early guess is enough at this level."
+    ),
+    "intermediate": (
+        "Did they form a working hypothesis early and test it, rather than exploring aimlessly or waiting to "
+        "be spoon-fed direction? Revisiting it explicitly as evidence comes in is a real plus, not yet a "
+        "requirement."
+    ),
+    "interview_ready": (
+        "Did they form a working hypothesis early and test it efficiently, rather than exploring the case "
+        "exhaustively and aimlessly or waiting to be spoon-fed direction? A specific, falsifiable hypothesis "
+        "stated out loud (\"my working view is X\") is meaningfully stronger than a vague gut feeling. The "
+        "best candidates also keep it visibly alive — after a finding that cuts against or reinforces it, "
+        "they explicitly say so (\"that makes me less confident in X\" / \"that supports X\"). A candidate "
+        "who runs several solid analyses but never once revisits their original view, in either direction, "
+        "is missing a real part of this skill — score that gap, don't let strong individual analyses paper "
+        "over it."
     ),
 }
 
@@ -462,23 +537,20 @@ _SYNTHESIS_BAR = {
 def _grading_category_list(difficulty: str) -> str:
     business_judgment_bar = _BUSINESS_JUDGMENT_BAR.get(difficulty, _BUSINESS_JUDGMENT_BAR["interview_ready"])
     synthesis_bar = _SYNTHESIS_BAR.get(difficulty, _SYNTHESIS_BAR["interview_ready"])
+    quant_bar = _QUANT_BAR.get(difficulty, _QUANT_BAR["interview_ready"])
+    hypothesis_bar = _HYPOTHESIS_BAR.get(difficulty, _HYPOTHESIS_BAR["interview_ready"])
     return f"""
 1. structuring_mece — Did the candidate build a clear, mutually exclusive, collectively exhaustive \
 framework before diving into analysis, and actually use it to drive the rest of the conversation (rather \
 than stating it once and abandoning it)?
 
 2. quantitative_reasoning — Was their math accurate? Did they set up calculations cleanly, state their \
-approach before crunching numbers, sanity-check results that looked off, and correctly interpret what the \
-number meant for the case? Landing the right number is only the baseline expectation — a standout answer \
-also contextualizes it afterward: naming a risk or caveat behind the assumptions it rests on, or flagging a \
-real factor the calculation left out (an investment cost, a timing effect, a second-order consequence). \
-Note when a candidate does this versus when they stop the moment the arithmetic is done.
+approach before crunching numbers, and sanity-check results that looked off? {quant_bar}
 
 3. business_judgment — Did they prioritize the issues that actually mattered for this specific client and \
 situation, and draw sound, non-obvious insights rather than generic textbook observations? {business_judgment_bar}
 
-4. hypothesis_driven_thinking — Did they form a working hypothesis early and test it efficiently, rather \
-than exploring the case exhaustively and aimlessly or waiting to be spoon-fed direction?
+4. hypothesis_driven_thinking — {hypothesis_bar}
 
 5. communication_clarity — Was their reasoning easy to follow — top-down, signposted, answer-first? Strong \
 candidates also pause at natural breakpoints (after laying out a framework, after walking through an \
