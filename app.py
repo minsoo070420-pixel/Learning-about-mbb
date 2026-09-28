@@ -41,8 +41,19 @@ app.config.update(
 redis_url = os.environ.get("REDIS_URL") or os.environ.get("KV_URL")
 redis_client = None
 if redis_url:
-    import redis as redis_lib
-    redis_client = redis_lib.from_url(redis_url)
+    try:
+        import redis as redis_lib
+        candidate = redis_lib.from_url(redis_url)
+        candidate.ping()  # fail loudly here, at import time, rather than on a user's first request
+        redis_client = candidate
+    except Exception as e:
+        # A misconfigured or unreachable Redis store shouldn't take the whole app down — log it
+        # clearly (visible in Vercel's function logs) and fall back to filesystem sessions, which
+        # at least keeps the app responding even though sessions won't persist reliably there.
+        print(f"REDIS_URL/KV_URL is set but Redis is unreachable, falling back to filesystem sessions: {e}")
+        redis_client = None
+
+if redis_client is not None:
     app.config.update(
         SESSION_TYPE="redis",
         SESSION_REDIS=redis_client,
@@ -50,9 +61,13 @@ if redis_url:
         SESSION_USE_SIGNER=True,
     )
 else:
+    # The project directory itself is read-only on Vercel (only /tmp is writable), so the
+    # fallback has to live in the OS temp dir to have any chance of working there too — locally
+    # this also just resolves to a normal temp directory, so nothing changes for local dev.
+    import tempfile
     app.config.update(
         SESSION_TYPE="filesystem",
-        SESSION_FILE_DIR=os.path.join(os.path.dirname(__file__), ".flask_session"),
+        SESSION_FILE_DIR=os.path.join(tempfile.gettempdir(), "consultant_flask_session"),
         SESSION_PERMANENT=False,
         SESSION_USE_SIGNER=True,
     )
