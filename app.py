@@ -25,17 +25,37 @@ app.config.update(
     # over plain http, so this stays True for local dev too — it only actually matters once this
     # is deployed on a real domain, where it stops the session cookie from ever being sent unencrypted.
     SESSION_COOKIE_SECURE=True,
-    # Flask's default session backend puts the whole session (here: the full chat transcript) into
-    # a signed client-side cookie, which runs into the ~4KB browser cookie ceiling on a case with
-    # more than a handful of turns. Store session data server-side instead — the cookie then only
-    # holds a small signed session ID. Filesystem storage is ephemeral across restarts/deploys, same
-    # as the in-memory daily-usage counters below, which is an acceptable, already-established
-    # tradeoff for this single-worker deployment (see PER_CUSTOMER_DAILY_LIMIT comment).
-    SESSION_TYPE="filesystem",
-    SESSION_FILE_DIR=os.path.join(os.path.dirname(__file__), ".flask_session"),
-    SESSION_PERMANENT=False,
-    SESSION_USE_SIGNER=True,
 )
+
+# Flask's default session backend puts the whole session (here: the full chat transcript) into a
+# signed client-side cookie, which runs into the ~4KB browser cookie ceiling on a case with more
+# than a handful of turns. Store session data server-side instead — the cookie then only holds a
+# small signed session ID.
+#
+# On Vercel (or any stateless/serverless host), a request can land on a totally different
+# container each time, so BOTH the local filesystem and any in-process Python variable are
+# unusable as shared state — everything below has to live in Redis instead. REDIS_URL / KV_URL is
+# what the Upstash-via-Vercel-marketplace integration injects automatically once it's attached to
+# the project (Project Settings -> Storage). Locally, with no Redis configured, this falls back to
+# filesystem sessions and an in-memory counter — no Redis needed just to run `python app.py`.
+redis_url = os.environ.get("REDIS_URL") or os.environ.get("KV_URL")
+redis_client = None
+if redis_url:
+    import redis as redis_lib
+    redis_client = redis_lib.from_url(redis_url)
+    app.config.update(
+        SESSION_TYPE="redis",
+        SESSION_REDIS=redis_client,
+        SESSION_PERMANENT=False,
+        SESSION_USE_SIGNER=True,
+    )
+else:
+    app.config.update(
+        SESSION_TYPE="filesystem",
+        SESSION_FILE_DIR=os.path.join(os.path.dirname(__file__), ".flask_session"),
+        SESSION_PERMANENT=False,
+        SESSION_USE_SIGNER=True,
+    )
 Session(app)
 
 with open(os.path.join(os.path.dirname(__file__), "cases.json")) as f:
@@ -72,22 +92,35 @@ DAILY_GEMINI_LIMIT = int(os.environ.get("DAILY_GEMINI_LIMIT", "800"))  # shared 
 PER_CUSTOMER_DAILY_LIMIT = int(os.environ.get("PER_CUSTOMER_DAILY_LIMIT", "10"))  # cap per individual customer
                                                                                    # set to 0 or blank to disable
 
-# In-memory counter, shared by every request this process handles. Resets when the calendar date
-# changes. Does NOT persist across restarts, and does NOT stay in sync across multiple worker
-# processes if this is ever deployed with more than one — fine for a single small dyno/instance,
-# not a substitute for real per-user billing controls at real scale.
+# In-memory counter — only actually shared across requests when there's a single long-running
+# worker process (e.g. gunicorn --workers 1 on Render). On a serverless/stateless host each
+# request can land on a different container, so this global would silently reset per-request and
+# never catch anything. When redis_client is configured (see above), a Redis INCR-based counter
+# is used instead, which is what makes this limit meaningful on Vercel.
 _gemini_call_count = 0
 _gemini_call_count_date = None
 
 
 def _daily_limit_reached():
     global _gemini_call_count, _gemini_call_count_date
+
+    if not DAILY_GEMINI_LIMIT:
+        return False
+
     today = date.today()
+
+    if redis_client is not None:
+        key = f"gemini_calls:{today.isoformat()}"
+        count = redis_client.incr(key)
+        if count == 1:
+            redis_client.expire(key, 2 * 24 * 60 * 60)  # 2 days — just needs to outlive "today"
+        return count > DAILY_GEMINI_LIMIT
+
     if _gemini_call_count_date != today:
         _gemini_call_count_date = today
         _gemini_call_count = 0
 
-    if DAILY_GEMINI_LIMIT and _gemini_call_count >= DAILY_GEMINI_LIMIT:
+    if _gemini_call_count >= DAILY_GEMINI_LIMIT:
         return True
 
     _gemini_call_count += 1
