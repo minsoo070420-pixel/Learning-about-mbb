@@ -110,7 +110,7 @@ specifics back in before you send it — a reaction or question that reads the s
 is exactly the vagueness you must avoid.
 
 {case_flow_style}
-{rigor_bar}
+{case_questions}{rigor_bar}
 {completion_instruction}{exhibit_instruction}
 STYLE
 Respond the way a real interviewer talks in the room: a few sentences of natural dialogue, not a lecture, \
@@ -318,6 +318,28 @@ COMPLETION_INSTRUCTION_BY_DIFFICULTY = {
 }
 
 
+CASE_QUESTIONS_TEMPLATE = """THE QUESTIONS THIS CASE IS BUILT AROUND
+A real casebook case is a short sequence of questions, not one open-ended prompt. These are the questions \
+this case is designed to reach, in order:
+{questions}
+Do not read them out as a list and do not announce them. Raise the next one in your own words only once the \
+candidate has genuinely finished the current stage, and skip any the candidate has already answered on their \
+own initiative. In a candidate-led case, let them get there themselves first (their structure should lead to \
+the first, their analysis to the third) and only ask if they haven't gone there. Keep the last question for \
+the end: the recommendation, with its risks. When a question asks for ideas, expect at least four, in \
+groups; if you get three, ask for more.
+
+"""
+
+
+def _case_questions_block(case: dict) -> str:
+    questions = case.get("questions")
+    if not questions:
+        return ""
+    numbered = "\n".join(f"{i}. {q}" for i, q in enumerate(questions, start=1))
+    return CASE_QUESTIONS_TEMPLATE.format(questions=numbered)
+
+
 def _build_system_prompt(case: dict) -> str:
     key_data_block = "\n".join(f"- {item}" for item in case["key_data"])
     difficulty = case.get("difficulty")
@@ -332,6 +354,7 @@ def _build_system_prompt(case: dict) -> str:
         prompt=case["prompt"],
         key_data=key_data_block,
         case_flow_style=case_flow_style,
+        case_questions=_case_questions_block(case),
         rigor_bar=rigor_bar,
         completion_instruction=completion_instruction,
         exhibit_instruction=exhibit_instruction,

@@ -204,6 +204,11 @@ def progress():
     return render_template("progress.html")
 
 
+@app.route("/strategy")
+def strategy():
+    return render_template("strategy.html")
+
+
 @app.route("/levels")
 def levels():
     return render_template("levels.html", difficulties=DIFFICULTIES, labels=DIFFICULTY_LABELS)

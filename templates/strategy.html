@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Strategy — Case Interview Practice</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="strategy-page">
+    <div class="questions-header">
+      <div>
+        <p class="debrief-kicker">Learn the playbook</p>
+        <h1>Case Strategy</h1>
+      </div>
+      <div>
+        <a href="{{ url_for('levels') }}" class="change-level-link">Practice a case</a>
+        <a href="{{ url_for('progress') }}" class="change-level-link">My Progress</a>
+      </div>
+    </div>
+
+    <p class="strategy-intro">Every case, in every industry, runs the same sequence: you get the prompt, <strong>open</strong>, build a <strong>structure</strong>, answer a handful of <strong>questions</strong> (ideas, math, a chart), and finish with a <strong>recommendation</strong>. Learn how to open, then how to handle each kind of question that follows.</p>
+
+    <div class="strategy-tabs" role="tablist" aria-label="Strategy sections">
+      <button type="button" role="tab" class="strategy-tab" data-tab="opening" aria-selected="true">1. How to open</button>
+      <button type="button" role="tab" class="strategy-tab" data-tab="questions" aria-selected="false">2. Handling each question</button>
+      <button type="button" role="tab" class="strategy-tab" data-tab="casetypes" aria-selected="false">3. By case type</button>
+      <button type="button" role="tab" class="strategy-tab" data-tab="format" aria-selected="false">4. Who drives the case</button>
+    </div>
+
+    <!-- ============================ 1. OPENING ============================ -->
+    <section class="strategy-panel" id="panel-opening" role="tabpanel">
+      <h2>The opening: four steps before any analysis</h2>
+      <p class="strategy-lead">Nothing in the opening is graded on being right. It is graded on whether you look like someone who has run this kind of meeting before: calm, organized, and in control of the process.</p>
+
+      <ol class="strategy-steps">
+        <li>
+          <h3>Restate the prompt in your own words</h3>
+          <p>Say back the client, the situation and the ask in one or two sentences. It proves you listened and gives the interviewer a chance to correct you before you spend ten minutes on the wrong problem.</p>
+          <p class="strategy-example">“So we're advising a regional retailer whose profit has fallen over four years, and the CEO wants to know why and what to do about it. Is that right?”</p>
+        </li>
+        <li>
+          <h3>React with one or two sentences of business sense</h3>
+          <p>A quick, informed observation about the industry shows you already think like a consultant. Keep it to a sentence or two; it is a seasoning, not a speech.</p>
+          <p class="strategy-example">“Online test-prep is a low-switching-cost market, so a cheaper entrant could pull price down fast.”</p>
+        </li>
+        <li>
+          <h3>Ask two or three clarifying questions</h3>
+          <p>Almost every strong opening draws from the same three buckets. Do not ask for things the prompt already told you, and do not fire off six questions in a row.</p>
+          <ul>
+            <li><strong>Goal.</strong> Is there a specific target (a profit figure, a share, a payback period), and by when?</li>
+            <li><strong>Business model.</strong> How does the client make money: what products, which customers, which channels?</li>
+            <li><strong>Scope.</strong> Which geography, product line or time frame are we looking at? Are there constraints (budget, regulation, no asset sales)?</li>
+          </ul>
+        </li>
+        <li>
+          <h3>Ask for a moment to structure</h3>
+          <p>“Could I take a minute to organize my thoughts?” is normal and expected; most interviewers are happy to give you one to two minutes. Use it to build a structure for <em>this</em> client, not to recall a memorized framework.</p>
+        </li>
+      </ol>
+
+      <h3 class="strategy-subhead">Presenting your structure</h3>
+      <ul class="strategy-list">
+        <li><strong>Go horizontal first.</strong> Give a 15-second overview before diving in: “I'd like to look at this through four lenses: first…, second…, third…, and finally…”</li>
+        <li><strong>Make it MECE.</strong> Three or four top-level buckets that do not overlap and together cover the problem.</li>
+        <li><strong>Tailor it.</strong> Weave in two or three case-specific points (“this is a capital-heavy business, so utilization matters”). A generic framework is the most common reason a structure reads as memorized.</li>
+        <li><strong>State a working hypothesis.</strong> “My starting view is that this is a cost problem, not a revenue problem. Let's test that.” Keep it alive as evidence comes in, and say out loud when it changes.</li>
+        <li><strong>Finish with momentum.</strong> End by proposing where to start: “If that sounds reasonable, I'd begin with the financials. Do we have revenue and cost by product?” You are driving; the interviewer is not.</li>
+      </ul>
+
+      <div class="strategy-callout">
+        <strong>Common mistakes</strong>
+        <ul>
+          <li>Starting to calculate before restating or clarifying.</li>
+          <li>Asking questions the prompt already answered.</li>
+          <li>Reciting a textbook framework (the “4 Ps”, “3 Cs”) without tailoring it to the client.</li>
+          <li>Presenting the structure and then waiting for the interviewer to say what comes next.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========================= 2. QUESTION TYPES ========================= -->
+    <section class="strategy-panel" id="panel-questions" role="tabpanel" hidden>
+      <h2>After the structure: how to handle each kind of question</h2>
+      <p class="strategy-lead">Whatever the industry, interviewers keep coming back to the same five kinds of question. Each one has its own expected answer shape.</p>
+
+      <details class="strategy-card" open>
+        <summary>Brainstorming (“What are the major costs?”, “What could be driving this?”)</summary>
+        <div class="strategy-card-body">
+          <p>An ideas question is never a request for analysis; it is a request for a structured list.</p>
+          <ul>
+            <li><strong>Take 30–40 seconds</strong> to think and jot down ideas. Silence is fine.</li>
+            <li><strong>Structure before you list.</strong> Announce the buckets first: “I'll split this into fixed and variable costs. On the fixed side I'm thinking…”</li>
+            <li><strong>Aim for four or more ideas.</strong> Three is the most common reason a brainstorm feels thin. Seven or eight, well organized, is exceptional.</li>
+            <li><strong>Add color.</strong> Tie ideas to this client: not just “supplies” but “supplies to house crews who live on the platform”.</li>
+            <li><strong>Close by choosing.</strong> Say which one or two you would investigate first and why.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="strategy-card">
+        <summary>Math (“Can you calculate the savings / the market size / the break-even?”)</summary>
+        <div class="strategy-card-body">
+          <ol>
+            <li><strong>Lay out the approach first.</strong> State the formula and logic before touching numbers, so the interviewer can follow even if the arithmetic slips.</li>
+            <li><strong>Ask for the data you need.</strong> Numbers are held back on purpose; asking for the missing input is part of the test.</li>
+            <li><strong>Calculate cleanly.</strong> Write each step, use round numbers where sensible, and say what each step represents.</li>
+            <li><strong>Interpret the answer.</strong>
+              <ul>
+                <li><em>Basic:</em> state the result in plain business English (“The client saves roughly $26M a year”).</li>
+                <li><em>Advanced:</em> sanity-check it. Is a 30% saving realistic? What is missing, such as upfront cost, ramp-up time or cannibalization? Does it change your hypothesis?</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="strategy-card">
+        <summary>Charts and exhibits</summary>
+        <div class="strategy-card-body">
+          <ul>
+            <li><strong>Orient before you interpret.</strong> Read the title, axes, units and time period aloud in a sentence.</li>
+            <li><strong>Lead with the “so what”.</strong> The headline first (“Margin has fallen every year even as revenue grew”), then two or three supporting observations.</li>
+            <li><strong>Look for the outlier or the break in trend.</strong> That is usually the point of the chart.</li>
+            <li><strong>Tie it back.</strong> Say whether it supports or undermines your hypothesis, and what you would look at next.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="strategy-card">
+        <summary>Risks (“What could go wrong?”)</summary>
+        <div class="strategy-card-body">
+          <p>Same rules as brainstorming: four or more ideas, in buckets. Three buckets work for almost any case:</p>
+          <ul>
+            <li><strong>Market risks:</strong> customers change behavior, competitors respond, the market consolidates.</li>
+            <li><strong>Financial risks:</strong> costs are underestimated, revenue falls short, funding dries up.</li>
+            <li><strong>Operational risks:</strong> capacity constraints, long negotiations, integration complexity.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="strategy-card">
+        <summary>The recommendation: R-R-R-N, in under 90 seconds</summary>
+        <div class="strategy-card-body">
+          <ol>
+            <li><strong>Recommendation.</strong> The answer first, before any justification. Top-down, not a story.</li>
+            <li><strong>Reasoning.</strong> Two or three supporting points. One reads as weak.</li>
+            <li><strong>Risks.</strong> Two or three caveats. A single risk sounds naive.</li>
+            <li><strong>Next steps.</strong> Two or three actions, typically a plan to mitigate the risks plus the analyses you did not have time to run.</li>
+          </ol>
+          <p>Keep it short and firm. Do not reopen the analysis, and do not hedge the headline. If the evidence is mixed, say which way you lean and what would change your mind. <em>Note:</em> McKinsey-style interviews often skip the formal recommendation; Bain and BCG-style cases almost always end with one.</p>
+        </div>
+      </details>
+
+      <details class="strategy-card">
+        <summary>If you get stuck</summary>
+        <div class="strategy-card-body">
+          <ul>
+            <li>Say where you are: “I'm trying to figure out whether this is a volume or a price issue.”</li>
+            <li>Go back to your structure and pick the next unexplored bucket.</li>
+            <li>Ask a clarifying question rather than guessing silently.</li>
+            <li>Make an explicit assumption, label it, and move on. Do not freeze.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- ============================ 3. CASE TYPES ============================ -->
+    <section class="strategy-panel" id="panel-casetypes" role="tabpanel" hidden>
+      <h2>How the opening and the next moves change by case type</h2>
+      <p class="strategy-lead">The discipline is identical; the building blocks differ. For each type: what to ask first, a structure that fits, and what to do right after you present it.</p>
+
+      <details class="strategy-card" open>
+        <summary><span class="category-badge">profitability</span> Why is profit falling, or how do we raise it?</summary>
+        <div class="strategy-card-body">
+          <p><strong>Ask first:</strong> Is there a profit target? Since when has profit been falling? Which products or segments does the client sell?</p>
+          <p><strong>Structure:</strong> Profit = revenue − costs. Revenue splits into price × volume, by product, segment and channel. Costs split into fixed and variable. Add a business-model bucket (what the client sells and to whom) and an external bucket (market trend, competitors, whether peers are in the same position).</p>
+          <p><strong>Then:</strong> Establish whether the problem is revenue, cost, or both, and when it started. Compare against competitors to see if it is company-specific or industry-wide. Zoom into the biggest or fastest-growing line item and look for the root cause.</p>
+          <p><strong>Watch out:</strong> Proposing fixes before you know where the problem is.</p>
+        </div>
+      </details>
+
+      <details class="strategy-card">
+        <summary><span class="category-badge">market entry</span> Should the client enter a new market?</summary>
+        <div class="strategy-card-body">
+          <p><strong>Ask first:</strong> What is the goal (profit, share, strategic foothold)? What budget and timeline? Which capabilities does the client already have?</p>
+          <p><strong>Structure:</strong> (1) Market attractiveness: size, growth, margins, competition, regulation. (2) Client fit: capabilities, brand, assets that transfer. (3) Entry mode: build, buy or partner. (4) Financials: investment, payback, break-even. (5) Risks.</p>
+          <p><strong>Then:</strong> Start with attractiveness, since an unattractive market ends the case early. If it passes, test fit and the economics. Close with entry mode and risks.</p>
+          <p><strong>Watch out:</strong> Treating a big market as automatically attractive. Size matters less than the share a newcomer can realistically win.</p>
+        </div>
+      </details>
+
+      <details class="strategy-card">
+        <summary><span class="category-badge">market sizing</span> How big is this market?</summary>
+        <div class="strategy-card-body">
+          <p><strong>Ask first:</strong> Units or revenue? Which geography and which year? What exactly counts as the product?</p>
+          <p><strong>Structure:</strong> Choose a method and say why. Top-down: population → relevant segment → share who buy → frequency → price. Bottom-up: count the buyers or outlets and multiply by the revenue per unit. If time allows, sanity-check with the other method.</p>
+          <p><strong>Then:</strong> State the formula before the numbers, use round figures, label every assumption, and finish with a sanity check (“does this per-capita spend feel plausible?”). Tie the number back to the client's decision.</p>
+          <p><strong>Watch out:</strong> Jumping straight into arithmetic without a structure, or stopping at the number without saying what it means.</p>
+        </div>
+      </details>
+
+      <details class="strategy-card">
+        <summary><span class="category-badge">M&amp;A</span> Should the client acquire (or merge with) another company?</summary>
+        <div class="strategy-card-body">
+          <p><strong>Ask first:</strong> Why does the client want this deal? Is the buyer strategic or financial? What is the budget or financing?</p>
+          <p><strong>Structure:</strong> (1) The target on its own: market, growth, margins. (2) Strategic fit and synergies: cost and revenue. (3) Valuation: a fair price, standalone versus with synergies. (4) Integration and risks. (5) Alternatives: could the client build or partner instead?</p>
+          <p><strong>Then:</strong> Value the target standalone, add only the synergies you believe, subtract integration costs, and compare to the asking price. Be skeptical of announced synergies.</p>
+          <p><strong>Watch out:</strong> Assuming synergies are free and certain, and forgetting customer overlap or culture and integration risk.</p>
+        </div>
+      </details>
+
+      <details class="strategy-card">
+        <summary><span class="category-badge">pricing</span> What should we charge?</summary>
+        <div class="strategy-card-body">
+          <p><strong>Ask first:</strong> New or existing product? Is the goal volume, margin or share? Any constraints (contracts, regulation)?</p>
+          <p><strong>Structure:</strong> Customers (willingness to pay, segments), competitors (their prices and likely response), costs (variable, fixed, break-even) and the client's own objective.</p>
+          <p><strong>Then:</strong> Establish the cost floor and the customer-value ceiling, then position inside that range. Test the price with a quick profit or break-even calculation, including how volume would respond.</p>
+          <p><strong>Watch out:</strong> Ignoring how a competitor might react, or treating all customers as one price-sensitivity.</p>
+        </div>
+      </details>
+
+      <details class="strategy-card">
+        <summary><span class="category-badge">growth strategy</span> How do we reach this growth target?</summary>
+        <div class="strategy-card-body">
+          <p><strong>Ask first:</strong> What is the target and the time frame? How much of it does organic growth already cover? What capital is available?</p>
+          <p><strong>Structure:</strong> Size the gap first. Then list levers: existing customers and products (share, price, frequency), new segments, new geographies, new products, and acquisitions or partnerships. Overlay market growth, capabilities and investment needs.</p>
+          <p><strong>Then:</strong> Estimate what each lever is worth and what it costs, rank them, and check whether levers conflict (for example, growth investment squeezing margin).</p>
+          <p><strong>Watch out:</strong> Listing ideas without sizing them, and treating levers as simply additive.</p>
+        </div>
+      </details>
+
+      <details class="strategy-card">
+        <summary><span class="category-badge">operations</span> Something is slow, costly or breaking. What do we do?</summary>
+        <div class="strategy-card-body">
+          <p><strong>Ask first:</strong> Which metric got worse, by how much and since when? What changed around then (volume, suppliers, systems, people)? Are there budget limits?</p>
+          <p><strong>Structure:</strong> Walk the process from inputs to outputs and look for the bottleneck. Assess along cost, time and quality, and across capacity and utilization, suppliers, people, and technology or equipment.</p>
+          <p><strong>Then:</strong> Diagnose before you prescribe: find where the process breaks, then size the fix (savings, payback, capacity gained) against the cost of the fix.</p>
+          <p><strong>Watch out:</strong> Jumping to an investment before establishing the root cause.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ============================ 4. FORMAT ============================ -->
+    <section class="strategy-panel" id="panel-format" role="tabpanel" hidden>
+      <h2>Who drives the case</h2>
+      <p class="strategy-lead">The biggest difference between an easy and a hard case is often not the math; it is who decides what happens next.</p>
+
+      <div class="strategy-compare">
+        <div class="strategy-compare-col">
+          <h3>Interviewer-driven</h3>
+          <p>The interviewer asks one question at a time: “What are the major costs?” then “Why might maintenance be rising?” then “Can you calculate the savings?”. You answer each, and they lead you to the next.</p>
+          <ul>
+            <li>Answer the question you were asked, in a structure.</li>
+            <li>Keep your answer tight; you will be asked for more.</li>
+            <li>Where this shows up here: Beginner and Intermediate.</li>
+          </ul>
+        </div>
+        <div class="strategy-compare-col">
+          <h3>Candidate-led</h3>
+          <p>After the prompt, you decide what to analyse, in what order and when you have enough to recommend. The interviewer reacts to your choices and answers the questions you ask.</p>
+          <ul>
+            <li>Propose a plan and a hypothesis, then drive through it.</li>
+            <li>Ask for the data you need instead of waiting for it to be offered.</li>
+            <li>Say what you will do next at every step, and tie each result back to the hypothesis.</li>
+            <li>Where this shows up here: Interview Ready.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="strategy-callout">
+        <strong>Firm styles differ a little.</strong> McKinsey-style interviews are typically interviewer-led and may end without a formal recommendation. Bain and BCG-style interviews lean candidate-led and finish with a short, structured recommendation. Practice both so neither surprises you.
+      </div>
+
+      <h3 class="strategy-subhead">A one-page checklist for the live case</h3>
+      <ol class="strategy-list">
+        <li>Restate. React. Two or three clarifying questions. Ask for a minute.</li>
+        <li>Present a tailored, MECE structure in 15 seconds, with a hypothesis, and propose where to start.</li>
+        <li>For every ideas question: buckets first, four or more ideas, color, then choose.</li>
+        <li>For every math question: formula first, ask for data, calculate, then interpret.</li>
+        <li>For every chart: orient, headline, supporting points, tie to the hypothesis.</li>
+        <li>Finish with R-R-R-N in under 90 seconds.</li>
+      </ol>
+
+      <p class="strategy-cta"><a href="{{ url_for('levels') }}" class="surprise-me-btn strategy-cta-btn">Put it into practice</a></p>
+    </section>
+  </div>
+
+  <script src="{{ url_for('static', filename='strategy.js') }}"></script>
+</body>
+</html>
